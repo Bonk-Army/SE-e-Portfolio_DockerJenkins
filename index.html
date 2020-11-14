@@ -55,168 +55,306 @@
 </head>
 <body>
 <div class="reveal">
-	<style>
-		.reveal .footer {
-			position: absolute;
-			bottom: 1em;
-			left: 1em;
-			font-size: 0.5em;
-		}
-	</style>
-	<div class='footer'>
-		TINF19B4 <br>
-		20.11.2020 <br>
-		Nico Holzh&aumluser & Patrick M&uumlller
-	</div>
-	<div class="slides" id="introduction">
-		<!-- Introduction -->
-		<section>
-			<script>
-				document.getElementsByClassName(footerTogether).style.display = 'initial';
-			</script>
-			<span style="padding-right:25%">
+    <style>
+        .reveal .footer {
+            position: absolute;
+            bottom: 1em;
+            left: 1em;
+            font-size: 0.5em;
+        }
+    </style>
+    <div class='footer'>
+        TINF19B4 <br>
+        20.11.2020 <br>
+        Nico Holzh&aumluser & Patrick M&uumlller
+    </div>
+    <div class="slides" id="introduction">
+        <!-- Introduction -->
+        <section>
+            <script>
+                document.getElementsByClassName(footerTogether).style.display = 'initial';
+            </script>
+            <span style="padding-right:25%">
 				Welcome to our Presentation about
 			</span>
-			<span style="padding-left:30%">
+            <span style="padding-left:30%">
 				<img src="node_modules/reveal.js/res/proxy-image.png">
 			</span>
-		</section>
-		<!-- ToC -->
-		<section>
-			<h2>Contents</h2>
-			<ol type="1">
-				<li>Docker</li>
-				<li>Live-Demo for Docker</li>
-				<li>Jenkins</li>
-				<li>Live-Demo for Jenkins</li>
-				<li>Interconnection</li>
-			</ol>
-		</section>
-	</div>
-	<div class="slides" id="docker" style="">
-		<!-- Title Page -->
-		<section>
-			<img width="80%" src="https://upload.wikimedia.org/wikipedia/commons/4/4e/Docker_%28container_engine%29_logo.svg">
-		</section>
-		<!-- TOC -->
-		<section>
-			<aside class="notes">
-				<ul>
-					<li>Table of Content for my Part about Docker</li>
-					<li>Roughly 15 Minutes</li>
-					<li>4 Main Points</li>
-					<li>Starting at IT Landscape</li>
-					<li>Transition</li>
-					<li>Going into Docke</li>
-				</ul>
-			</aside>
-			<h1>Contens</h1>
-			<ol>
-				<li>The IT Landscape is changing....</li>
-				<li>History of Docker</li>
-				<li>So what is Docker ?</li>
-				<li></li>
-			</ol>
-		</section>
-		<!-- IT Change -->
-		<section>
-			<aside class="notes">
-				<ul>
-					<li>Mostly Monoliths</li>
-					<li>Now many Microservices which can be made by Docker</li>
-				</ul>
-			</aside>
-			<h1>Change of the IT Landscape</h1>
-			<img width="50%" style="border-radius: 8px;" src="https://res.cloudinary.com/practicaldev/image/fetch/s--seen3BGm--/c_limit%2Cf_auto%2Cfl_progressive%2Cq_auto%2Cw_880/https://user-images.githubusercontent.com/2697570/49395813-cd094980-f737-11e8-9e9a-6c20db5720c4.jpg">
-		</section>
-		<!-- Container-->
-		<section>
-			<h1>What is a Container ?</h1>
-			<img style="border-radius: 8px;" width="30%" height="60%" src="https://golangnews.org/wp-content/uploads/2020/07/1-containers-abc-729x640.png">
-		</section>
-		<!-- What is Docker-->
-		<section>
-			<h1>So what is Docker ?</h1>
-			<img width="40%",
-				 style="border-radius: 8px;"
-				 src="https://cs-geonode.readthedocs.io/en/2.8_a/_images/docker.png">
-		</section>
-		<!--  Docker History -->
-		<section>
-			<aside class="notes">
-				<h1>STRG und Pfeiltasten um durch Timeline zu gehen</h1>
-			</aside>
-			<h2>The History of Docker</h2>
-			<!-- 1 -->
-			<link title="timeline-styles" rel="stylesheet"
-				  href="https://cdn.knightlab.com/libs/timeline3/latest/css/timeline.css">
-			<!-- 2 -->
-			<script src="https://cdn.knightlab.com/libs/timeline3/latest/js/timeline.js"></script>
-			<div id='timeline-embed' style="width: 100%; height: 600px" ></div>
-			<style>
-				.tl-timenav {
-					background-color: #191919;
-					border-top: 0px solid;
-				}
-				.tl-timemarker-content-container {
-					background-color: #060303;
-				}
-				.tl-timeaxis-background {
-					background-color: #191919;
-					border-top: 0px solid;
-				}
-				.tl-timenav .tl-attribution {
-					background-color: rgb(25 25 25);
-				}
-				.tl-menubar-button {
-					background-color: rgb(25 25 25);
-				}
-				.tl-timeline h1, .tl-timeline h2, .tl-timeline h3, .tl-timeline h4, .tl-timeline h5, .tl-timeline h6 {
-					color: #099cec;
-				}
-				.tl-timemarker.tl-timemarker-active .tl-timemarker-timespan {
-					background-color: rgb(9 156 236);
-				}
-				.tl-timemarker.tl-timemarker-active .tl-timemarker-content-container {
-					background-color: #099cec;
-				}
-			</style>
-			<!-- 3 -->
-			<script type="text/javascript">
-				var additionalOptions = {
-					default_bg_color: {r:25, g:25, b:25},
-				}
+        </section>
+        <!-- ToC -->
+        <section>
+            <h2>Contents</h2>
+            <ol type="1">
+                <li>Docker</li>
+                <li>Live-Demo for Docker</li>
+                <li>Jenkins</li>
+                <li>Live-Demo for Jenkins</li>
+                <li>Interconnection</li>
+            </ol>
+        </section>
+    </div>
+    <div class="slides" id="docker" style="">
+        <!-- Title Page -->
+        <section>
+            <img width="80%"
+                 src="https://upload.wikimedia.org/wikipedia/commons/4/4e/Docker_%28container_engine%29_logo.svg">
+        </section>
+        <!-- TOC -->
+        <section>
+            <aside class="notes">
+                <ul>
+                    <li>Table of Content for my Part about Docker</li>
+                    <li>Roughly 15 Minutes</li>
+                    <li>4 Main Points</li>
+                    <li>Starting at IT Landscape</li>
+                    <li>Transition</li>
+                    <li>Going into Docke</li>
+                </ul>
+            </aside>
+            <h1>Contens</h1>
+            <ol>
+                <li>The IT Landscape is changing....</li>
+                <li>What is a Container ?</li>
+                <li>Container Concept</li>
+                <li>What is Docker ?</li>
+                <li>History of Docker</li>
+                <li>How can we use Docker ?</li>
+            </ol>
+        </section>
+        <!-- IT Change -->
+        <section>
+            <aside class="notes">
+                <ul>
+                    <li>Mostly Monoliths</li>
+                    <li>Now many Microservices which can be made by Docker</li>
+                </ul>
+            </aside>
+            <h1>Change of the IT Landscape</h1>
+            <img width="50%" style="border-radius: 8px;"
+                 src="https://res.cloudinary.com/practicaldev/image/fetch/s--seen3BGm--/c_limit%2Cf_auto%2Cfl_progressive%2Cq_auto%2Cw_880/https://user-images.githubusercontent.com/2697570/49395813-cd094980-f737-11e8-9e9a-6c20db5720c4.jpg">
+        </section>
+        <!-- Container Concept-->
+        <section>
+            <!-- -->
+            <section>
+                <h1>The Container Concept</h1>
+                <img width="30%" src="./res/container.png">
+            </section>
+            <!-- Docker Image-->
+            <section>
+                <img width="40%" ,
+                     style="border-radius: 8px;"
+                     src="https://cs-geonode.readthedocs.io/en/2.8_a/_images/docker.png">
+            </section>
+            <!-- Terms -->
+            <section>
+                <h1>Important Terms</h1>
+            </section>
+            <!-- Layer -->
+            <section>
+                <h1>Layer</h1>
+                <p class="fragment" data-fragment-index="1">Part of an Image</p>
+                <p class="fragment" data-fragment-index="2">Could be Files or Command</p>
+                <p class="fragment" data-fragment-index="3"><img
+                        src="https://miro.medium.com/max/450/1*kTDjPNUqGX8ZdLidbukheA.png"></p>
+            </section>
+            <!-- Image -->
+            <section>
+                <h1>Image</h1>
+                <p class="fragment" data-fragment-index="1">Image of an "Container"</p>
+                <p class="fragment" data-fragment-index="2">Consists of multiple Layers</p>
+                <p class="fragment" data-fragment-index="3"><img
+                        src="https://adeeshfulay.files.wordpress.com/2017/09/docker-layers1.png"></p>
+            </section>
+            <!-- Container -->
+            <section>
+                <h1>Container</h1>
+                <p class="fragment" data-fragment-index="1">Instanced version of an Image</p>
+                <p class="fragment" data-fragment-index="2">Many Containers can run the same Image</p>
+                <p class="fragment" data-fragment-index="3"><img
+                        src="https://geekflare.com/wp-content/uploads/2019/07/dockerfile-697x270.png"></p>
+            </section>
+            <!-- Dockerfile -->
+            <section>
+                <h1>Dockerfile</h1>
+                <pre><code data-trim data-noescape data-line-numbers="10-11">
+                        # Use the official image as a parent image.
+                        FROM node:current-slim
+                        # Set the working directory.
+                        WORKDIR /usr/src/app
+                        # Copy the file from your host to your current location.
+                        COPY package.json .
+                        # Run the command inside your image filesystem.
+                        RUN npm install
+                        # Add metadata to the image to describe which port the container is listening on at runtime.
+                        EXPOSE 8080
+                        # Run the specified command within the container.
+                        CMD [ "npm", "start" ]
+                        # Copy the rest of your app's source code from your host to your image filesystem.
+                        COPY . .
+                    </code></pre>
+            </section>
+            <!-- Registry -->
+            <section>
+                <h1>Registry</h1>
+                <p class="fragment" data-fragment-index="1">Service to administrate Images</p>
+                <p class="fragment" data-fragment-index="2">Biggest One : Docker Hub</p>
+                <p class="fragment" data-fragment-index="3"><img src="https://www.itzgeek.com/wp-content/uploads/2016/07/Building-Docker-Images.png"></p>
+            </section>
+            <!-- Volume -->
+            <section>
+                <h1>Volume</h1>
+                <p class="fragment" data-fragment-index="1">Mostly folder(s) on the Host System</p>
+                <p class="fragment" data-fragment-index="2">Volumes are "mounted" into an Container</p>
+                <p class="fragment" data-fragment-index="3"><img src="https://itgix.com/images/upl/shared-volume.jpg"></p>
+            </section>
+            <!-- Network -->
+            <section>
+                <h1>Network</h1>
+                <p class="fragment" data-fragment-index="1">Connection to the "outer" World could be Local or on the Internet</p>
+                <p class="fragment" data-fragment-index="2">The Container uses the Host's Connection and Adapter</p>
+                <p class="fragment" data-fragment-index="3"><img width="30%" src="https://miro.medium.com/max/2710/0*9Ag7iew3NVDcf-xs."></p>
+            </section>
+            <!-- Node -->
+            <section>
+                <h1>Node</h1>
+                <p class="fragment" data-fragment-index="1">VM or physical Machine, which is a member of an Network</p>
+                <p class="fragment" data-fragment-index="3"><img src="https://docs.docker.com/engine/swarm/images/swarm-diagram.png"></p>
+            </section>
+        </section>
+        <!-- Positiv points for Containers-->
+        <section>
+            <section>
+                <h1>Positiv Aspects of Containers</h1>
+            </section>
+            <section>
+                Easy Deployment
+            </section>
+            <section>
+                Lightway
+            </section>
+            <section>
+                CI/CD compatible (&#128064 E-Portfolie Jenkins)
+            </section>
+            <section>
+                <h5>Scalable</h5>
+                <ul>
+                    <li>Horizontal</li>
+                    <li>Vertical</li>
+                </ul>
+                <br>
+                <img style="border-radius: 8px;" class="fragment"
+                     src="https://www.redswitches.com/hs-fs/hubfs/scaling-image.jpg?width=790&name=scaling-image.jpg">
+            </section>
+        </section>
+        <!-- What is Docker-->
+        <section>
+            <h1>So what is Docker ?</h1>
+            <img style="border-radius: 8px;" width="30%" height="60%"
+                 src="https://golangnews.org/wp-content/uploads/2020/07/1-containers-abc-729x640.png">
+        </section>
+        <!--  Docker History -->
+        <section>
+            <aside class="notes">
+                <h1>STRG und Pfeiltasten um durch Timeline zu gehen</h1>
+            </aside>
+            <h2>The History of Docker</h2>
+            <!-- 1 -->
+            <link title="timeline-styles" rel="stylesheet"
+                  href="https://cdn.knightlab.com/libs/timeline3/latest/css/timeline.css">
+            <!-- 2 -->
+            <script src="https://cdn.knightlab.com/libs/timeline3/latest/js/timeline.js"></script>
+            <div id='timeline-embed' style="width: 100%; height: 600px"></div>
+            <style>
+                .tl-timenav {
+                    background-color: #191919;
+                    border-top: 0px solid;
+                }
 
-				timeline = new TL.Timeline('timeline-embed',
-						'https://docs.google.com/spreadsheets/d/11Asdm-P3S2ehchGg0tvwSiJbfr7B8TukHCH-YNQ2Fcw/pubhtml',
-						additionalOptions);
-			</script>
-		</section>
-	</div>
-	<div class="slides" id="jenkins">
-		<!-- Title slide -->
-		<section>
-			<h2>Jenkins</h2>
-			<img src="https://www.jenkins.io/images/logos/stay-safe/stay-safe.png" alt="Jenkins Logo" width="128px">
-		</section>
-		<!-- Content -->
-		<section>
-			<!-- Content Overview -->
-			<section>
-				<ul>
-					<li>What is Jenkins?</li>
-					<li>A brief history of Jenkins</li>
+                .tl-timemarker-content-container {
+                    background-color: #060303;
+                }
+
+                .tl-timeaxis-background {
+                    background-color: #191919;
+                    border-top: 0px solid;
+                }
+
+                .tl-timenav .tl-attribution {
+                    background-color: rgb(25 25 25);
+                }
+
+                .tl-menubar-button {
+                    background-color: rgb(25 25 25);
+                }
+
+                .tl-timeline h1, .tl-timeline h2, .tl-timeline h3, .tl-timeline h4, .tl-timeline h5, .tl-timeline h6 {
+                    color: #099cec;
+                }
+
+                .tl-timemarker.tl-timemarker-active .tl-timemarker-timespan {
+                    background-color: rgb(9 156 236);
+                }
+
+                .tl-timemarker.tl-timemarker-active .tl-timemarker-content-container {
+                    background-color: #099cec;
+                }
+            </style>
+            <!-- 3 -->
+            <script type="text/javascript">
+                var additionalOptions = {
+                    default_bg_color: {r: 25, g: 25, b: 25},
+                }
+
+                timeline = new TL.Timeline('timeline-embed',
+                    'https://docs.google.com/spreadsheets/d/11Asdm-P3S2ehchGg0tvwSiJbfr7B8TukHCH-YNQ2Fcw/pubhtml',
+                    additionalOptions);
+            </script>
+        </section>
+        <!-- Docker Architektur -->
+        <section>
+            <h1>Docker Architektur</h1>
+            <img src="https://www.01net.it/wp-content/uploads/sites/14/2017/07/container-devops.png">
+        </section>
+        <!-- Docker Workflow -->
+        <section>
+            <h1>Docker Workflow</h1>
+            <img src="https://cdn.stereolabs.com/docs/docker/images/docker-jetson-workflow.jpg">
+        </section>
+        <!-- Live Demo -->
+        <section style="width: 100%;height: 85%;padding-top: 50px">
+            <iframe data-src="https://labs.play-with-docker.com/" width="100%" height="300%"></iframe>
+            <aside class="notes">
+                <code>
+                    docker run --name nginxTest -d -p 8080:80 nginx:latest
+                </code>
+            </aside>
+        </section>
+    </div>
+    <div class="slides" id="jenkins">
+        <!-- Title slide -->
+        <section>
+            <h2>Jenkins</h2>
+            <img src="https://www.jenkins.io/images/logos/stay-safe/stay-safe.png" alt="Jenkins Logo" width="128px">
+        </section>
+        <!-- Content -->
+        <section>
+            <!-- Content Overview -->
+            <section>
+                <ul>
+                    <li>What is Jenkins?</li>
+                    <li>A brief history of Jenkins</li>
 					<li>What do I need CI/CD for?</li>
 					<!-- Hint: One build server that builds instead of every developer machine -> "It works on my machine" prevented -->
 					<li>How to install Jenkins</li>
-					<li>How to integrate Jenkins with GitHub</li>
-					<li>What is Jenkins capable of doing?</li>
-					<li>Why do I need a build server when there is GitHub actions?</li>
-				</ul>
-			</section>
-			<!-- What is Jenkins -->
-			<section>
-				<h2>What is Jenkins?</h2>
+                    <li>How to integrate Jenkins with GitHub</li>
+                    <li>What is Jenkins capable of doing?</li>
+                    <li>Why do I need a build server when there is GitHub actions?</li>
+                </ul>
+            </section>
+            <!-- What is Jenkins -->
+            <section>
+                <h2>What is Jenkins?</h2>
 			</section>
 			<!-- History -->
 			<section>
@@ -230,12 +368,12 @@
 					<li>Central build server</li>
 					<li>Same environment for every build</li>
 				</ul>
-			</section>
-			<!-- How to install -->
-			<section>
-				<h2>How to install Jenkins</h2>
-				<h4>... standalone</h4>
-				<h4>... via Docker</h4>
+            </section>
+            <!-- How to install -->
+            <section>
+                <h2>How to install Jenkins</h2>
+                <h4>... standalone</h4>
+                <h4>... via Docker</h4>
 			</section>
 			<!-- Integrate with GitHub -->
 			<section>
@@ -248,28 +386,28 @@
 			<!-- Why own build server -->
 			<section>
 				<h2>Why do I need a build server when there is GitHub actions?</h2>
-			</section>
-		</section>
-	</div>
-	<div class="slides" id="interconnect">
-	</div>
+            </section>
+        </section>
+    </div>
+    <div class="slides" id="interconnect">
+    </div>
 </div>
 <div id="scripts">
-	<script src="node_modules/reveal.js/dist/reveal.js"></script>
-	<script src="node_modules/reveal.js/plugin/notes/notes.js"></script>
-	<script src="node_modules/reveal.js/plugin/markdown/markdown.js"></script>
-	<script src="node_modules/reveal.js/plugin/highlight/highlight.js"></script>
-	<script>
-		// More info about initialization & config:
-		// - https://revealjs.com/initialization/
-		// - https://revealjs.com/config/
-		Reveal.initialize({
-			hash: true,
-			showNotes: "true",
-			// Learn about plugins: https://revealjs.com/plugins/
-			plugins: [RevealMarkdown, RevealHighlight, RevealNotes]
-		});
-	</script>
+    <script src="node_modules/reveal.js/dist/reveal.js"></script>
+    <script src="node_modules/reveal.js/plugin/notes/notes.js"></script>
+    <script src="node_modules/reveal.js/plugin/markdown/markdown.js"></script>
+    <script src="node_modules/reveal.js/plugin/highlight/highlight.js"></script>
+    <script>
+        // More info about initialization & config:
+        // - https://revealjs.com/initialization/
+        // - https://revealjs.com/config/
+        Reveal.initialize({
+            hash: true,
+            showNotes: "true",
+            // Learn about plugins: https://revealjs.com/plugins/
+            plugins: [RevealMarkdown, RevealHighlight, RevealNotes]
+        });
+    </script>
 </div>
 </body>
 </html>
