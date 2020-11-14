@@ -1,14 +1,57 @@
 <!doctype html>
+<!--
+
+    Welcome to the light side of the source, young padawan.
+
+    One step closer to learn something interesting you are...
+
+                               ____
+                            _.' :  `._
+                        .-.'`.  ;   .'`.-.
+               __      / : ___\ ;  /___ ; \      __
+             ,'_ ""=-.:__;".-.";: :".-.":__;.-="" _`,
+             :' `.t""=-.. '<@.`;_  ',@:` ..-=""j.' `;
+                  `:-.._J '-.-'L__ `-.-' L_..-;'
+                    "-.__ ;  .-"  "-.  : __.-"
+                        L ' /.======.\ ' J
+                         "-.   "__"   .-"
+                        __.l"-:_JL_;-";.__
+                     .-j/'.;  ;""""  / .'\"-.
+                   .' /:`. "-.:     .-" .';  `.
+                .-"  / ;  "-. "-..-" .-"  :    "-.
+             .+"-.  : :      "-.__.-"      ;-._   \
+             ; \  `.; ;                    : : "+. ;
+             :  ;   ; ;                    : ;  : \:
+             ;  :   ; :                    ;:   ;  :
+            : \  ;  :  ;                  : ;  /  ::
+            ;  ; :   ; :                  ;   :   ;:
+            :  :  ;  :  ;                : :  ;  : ;
+            ;\    :   ; :                ; ;     ; ;
+            : `."-;   :  ;              :  ;    /  ;
+             ;    -:   ; :              ;  : .-"   :
+             :\     \  :  ;            : \.-"      :
+              ;`.    \  ; :            ;.'_..-=  / ;
+              :  "-.  "-:  ;          :/."      .'  :
+               \         \ :          ;/  __        :
+                \       .-`.\        /t-""  ":-+.   :
+                 `.  .-"    `l    __/ /`. :  ; ; \  ;
+                   \   .-" .-"-.-"  .' .'j \  /   ;/
+                    \ / .-"   /.     .'.' ;_:'    ;
+                     :-""-.`./-.'     /    `.___.'
+                           \ `t  ._  /
+                            "-.t-._:'
+
+-->
 <html>
 <head>
 	<meta charset="utf-8">
 	<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
 	<title>reveal.js</title>
-	<link rel="stylesheet" href="dist/reset.css">
-	<link rel="stylesheet" href="dist/reveal.css">
-	<link rel="stylesheet" href="dist/theme/black.css" id="theme">
+	<link rel="stylesheet" href="node_modules/reveal.js/dist/reset.css">
+	<link rel="stylesheet" href="node_modules/reveal.js/dist/reveal.css">
+	<link rel="stylesheet" href="node_modules/reveal.js/dist/theme/black.css" id="theme">
 	<!-- Theme used for syntax highlighted code -->
-	<link rel="stylesheet" href="plugin/highlight/monokai.css" id="highlight-theme">
+	<link rel="stylesheet" href="node_modules/reveal.js/plugin/highlight/monokai.css" id="highlight-theme">
 </head>
 <body>
 <div class="reveal">
@@ -31,11 +74,11 @@
 			<script>
 				document.getElementsByClassName(footerTogether).style.display = 'initial';
 			</script>
-			<span style="padding-right:30%">
+			<span style="padding-right:25%">
 				Welcome to our Presentation about
 			</span>
 			<span style="padding-left:30%">
-				<img src="res/proxy-image.png">
+				<img src="node_modules/reveal.js/res/proxy-image.png">
 			</span>
 		</section>
 		<!-- ToC -->
@@ -162,9 +205,12 @@
 			<section>
 				<ul>
 					<li>What is Jenkins?</li>
+					<li>A brief history of Jenkins</li>
+					<li>What do I need CI/CD for?</li>
+					<!-- Hint: One build server that builds instead of every developer machine -> "It works on my machine" prevented -->
 					<li>How to install Jenkins</li>
 					<li>How to integrate Jenkins with GitHub</li>
-					<li>What is Jenkins capable of?</li>
+					<li>What is Jenkins capable of doing?</li>
 					<li>Why do I need a build server when there is GitHub actions?</li>
 				</ul>
 			</section>
@@ -172,11 +218,36 @@
 			<section>
 				<h2>What is Jenkins?</h2>
 			</section>
+			<!-- History -->
+			<section>
+				<h2>History of Jenkins</h2>
+			</section>
+			<!-- CI/CD -->
+			<section>
+				<h2>What do I need CI/CD for?</h2>
+				<ul>
+					<li>"It works on my machine"</li>
+					<li>Central build server</li>
+					<li>Same environment for every build</li>
+				</ul>
+			</section>
 			<!-- How to install -->
 			<section>
 				<h2>How to install Jenkins</h2>
 				<h4>... standalone</h4>
 				<h4>... via Docker</h4>
+			</section>
+			<!-- Integrate with GitHub -->
+			<section>
+				<h2>How to integrate Jenkins with GitHub</h2>
+			</section>
+			<!-- Capabilities -->
+			<section>
+				<h2>What is Jenkins capable of doing?</h2>
+			</section>
+			<!-- Why own build server -->
+			<section>
+				<h2>Why do I need a build server when there is GitHub actions?</h2>
 			</section>
 		</section>
 	</div>
@@ -184,10 +255,10 @@
 	</div>
 </div>
 <div id="scripts">
-	<script src="dist/reveal.js"></script>
-	<script src="plugin/notes/notes.js"></script>
-	<script src="plugin/markdown/markdown.js"></script>
-	<script src="plugin/highlight/highlight.js"></script>
+	<script src="node_modules/reveal.js/dist/reveal.js"></script>
+	<script src="node_modules/reveal.js/plugin/notes/notes.js"></script>
+	<script src="node_modules/reveal.js/plugin/markdown/markdown.js"></script>
+	<script src="node_modules/reveal.js/plugin/highlight/highlight.js"></script>
 	<script>
 		// More info about initialization & config:
 		// - https://revealjs.com/initialization/
