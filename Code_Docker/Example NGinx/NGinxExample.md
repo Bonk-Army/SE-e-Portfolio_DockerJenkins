@@ -24,8 +24,8 @@ cat > ./page-contents/test.html << ENDOFFILE
 </html>
 ENDOFFILE
 ```
-After to start the container with your linked directory ~ :
-    ```docker run -it --rm -d -p 8080:80 --name web -v ~/page-contents:/usr/share/nginx/html nginx```
+After to start the container with your linked directory ~  
+```docker run -it --rm -d -p 8080:80 --name web -v ~/page-contents:/usr/share/nginx/html nginx```
 
 
 Second Method
