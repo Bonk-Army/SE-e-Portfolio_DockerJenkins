@@ -177,7 +177,7 @@
             <!-- Dockerfile -->
             <section>
                 <h1>Dockerfile</h1>
-                <pre><code data-trim data-noescape data-line-numbers="10-11">
+                <pre><code data-trim data-noescape data-line-numbers="2|4|6|8|10|12">
                         # Use the official image as a parent image.
                         FROM node:current-slim
                         # Set the working directory.
@@ -318,17 +318,49 @@
         </section>
         <!-- Docker Workflow -->
         <section>
-            <h1>Docker Workflow</h1>
-            <img src="https://cdn.stereolabs.com/docs/docker/images/docker-jetson-workflow.jpg">
+            <section>
+                <h1>Docker Workflow</h1>
+                <img width="60%" src="https://miro.medium.com/max/1490/0*EMmmZ8pZPRzfewJy.png">
+            </section>
+            <section>
+                <h1>Dockerfile Example</h1>
+                <pre><code data-trim data-fragment-index="1" data-line-numbers="1|2|3|4|5|6|7">
+                    # Filename: Dockerfile.build
+                    FROM node:10-alpine
+                    WORKDIR /usr/src/app
+                    COPY package*.json ./
+                    RUN npm install
+                    COPY . .
+                    EXPOSE 3000
+                </code></pre>
+                <ul>
+                    <li class="fragment" data-fragment-index="1">Adding the Base Image</li>
+                    <li class="fragment" data-fragment-index="2">Setting Work Directory</li>
+                    <li class="fragment" data-fragment-index="3">Copy Files (package*.json) into the Container</li>
+                    <li class="fragment" data-fragment-index="4">Install Dependencies ("npm install")</li>
+                    <li class="fragment" data-fragment-index="5">Copy Content</li>
+                    <li class="fragment" data-fragment-index="6">Port Opening</li>
+                </ul>
+            </section>
         </section>
         <!-- Live Demo -->
         <section style="width: 100%;height: 85%;padding-top: 50px">
             <iframe data-src="https://labs.play-with-docker.com/" width="100%" height="300%"></iframe>
-            <aside class="notes">
-                <code>
-                    docker run --name nginxTest -d -p 8080:80 nginx:latest
-                </code>
-            </aside>
+        </section>
+        <!-- For Completion -->
+        <section>
+            <h1>For Completion : Docker Swarm</h1>
+            <img style="border-radius: 8px;width: 40%;" src="https://stefanscherer.github.io/content/images/2016/03/windows_swarm_demo.png">
+        </section>
+        <!-- Outlooks -->
+        <section style="width: 100%;height: 85%;padding-top: 50px">
+            <h1>Outlooks</h1>
+            Where can you integrate Docker into your Project ? <br> <br>
+            <ul>
+                <li class="fragment" data-fragment-index="1">Database Server</li>
+                <li class="fragment" data-fragment-index="2">Webserver</li>
+                <li class="fragment" data-fragment-index="3">CI/CD Pipeline : Jenkins ?</li>
+            </ul>
         </section>
     </div>
     <div class="slides" id="jenkins">
