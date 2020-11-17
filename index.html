@@ -789,8 +789,9 @@
                     USER jenkins
                     RUN jenkins-plugin-cli --plugins blueocean:1.24.3
                 </code></pre>
-                <pre><code data-trim data-noescape>
+                <pre><code data-trim data-noescape data-line-numbers="1|2">
                     docker build -t my-docker-jenkins-image .
+                    docker run my-docker-jenkins-image
                 </code></pre>
             </section>
             <section>
