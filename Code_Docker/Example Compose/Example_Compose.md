@@ -1,4 +1,18 @@
-# Adding First Container   
+- [Example Docker Compose](#example-docker-compose)
+  * [TL;DR](#tl-dr)
+  * [Adding Angular Container](#adding-angular-container)
+    + [Creating the Folder](#creating-the-folder)
+    + [Creating the Dockerfile](#creating-the-dockerfile)
+  * [Adding Express JS Container](#adding-express-js-container)
+    + [Creating the Folder](#creating-the-folder-1)
+    + [Creating the Dockerfile](#creating-the-dockerfile-1)
+    + [Creating the Packackge.json](#creating-the-packackgejson)
+  * [Creating the "Stack"](#creating-the--stack-)
+    + [Creating the Compose file](#creating-the-compose-file)
+    + [Building the Stack](#building-the-stack)
+    + [Running the Stack](#running-the-stack)
+
+# Example Docker Compose 
 
 ## TL;DR  
 Copy the full code into a File with the ending .sh  
@@ -11,7 +25,7 @@ For Example you can use the sequence :
     6. `docker-compose up`  
 <details>
     <summary>Click to toggle contents of `code`</summary>
-    
+
     #!/bin/sh
     mkdir angular-app
     mkdir express-server
@@ -121,7 +135,7 @@ For Example you can use the sequence :
     ```
 </details>
 
-## Adding the Angular Container  
+## Adding Angular Container  
 ### Creating the Folder  
 ```
 mkdir angular-app
@@ -141,7 +155,7 @@ CMD ["npm","start"]
 ENDOFFILE
 ```
 
-## Adding the Secound Container  
+## Adding Express JS Container  
 ### Creating the Folder  
 ```
 mkdir express-server
