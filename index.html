@@ -669,73 +669,80 @@
             <img src="https://www.jenkins.io/images/logos/stay-safe/stay-safe.png" alt="Jenkins Logo" width="128px">
         </section>
         <!-- Content -->
+        <!-- Content Overview -->
         <section>
-            <!-- Content Overview -->
-            <section>
-                <ul>
-                    <li>What is Jenkins?</li>
-                    <li>A brief history of Jenkins</li>
-                    <li>What do I need a build server for?</li>
-					<li>What do I need CI/CD for?</li>
-					<!-- Hint: One build server that builds instead of every developer machine -> "It works on my machine" prevented -->
-					<li>How to install Jenkins</li>
-                    <li>How to integrate Jenkins with GitHub</li>
-                    <li>What is Jenkins capable of doing?</li>
-                    <li>Why do I need a build server when there is GitHub actions?</li>
-                </ul>
-            </section>
-            <!-- What is Jenkins -->
-            <section>
-                <h2>What is Jenkins?</h2>
+            <ul>
+                <!-- TODO Anpassen!!! -->
+                <li>What is Jenkins?</li>
+                <li>A brief history of Jenkins</li>
+                <li>What do I need a build server for?</li>
+                <li>What do I need CI/CD for?</li>
+                <!-- Hint: One build server that builds instead of every developer machine -> "It works on my machine" prevented -->
+                <li>How to install Jenkins</li>
+                <li>How to integrate Jenkins with GitHub</li>
+                <li>What is Jenkins capable of doing?</li>
+                <li>Why do I need a build server when there is GitHub actions?</li>
+            </ul>
+        </section>
+        <!-- What is Jenkins -->
+        <section>
+            <h2>What is Jenkins?</h2>
+            <img src="https://acadgildsite.s3.amazonaws.com/wordpress_images/devops/What_is_Jenkins/02_CI_Image.jpg" alt="what is Jenkins">
+            <aside class="notes">
                 <ul>
                     <li>Open Source: <a href="https://github.com/jenkinsci/jenkins">https://github.com/jenkinsci/jenkins</a></li>
                     <li>Automation Server</li>
                     <li>Highly extensible through plugins</li>
                 </ul>
-                <!--
-                    Source: https://www.jenkins.io/doc/
-                -->
-			</section>
-			<!-- History -->
-			<section>
-				<h2>History of Jenkins</h2>
-                <ul>
-                    <li>Released February 2005 as "Hudson"</li>
-                    <li>Renamed to Jenkins in 2011 after a dispute with Oracle</li>
-                    <li>Both projects co-existed with Oracle claiming that Jenkins was the fork</li>
-                    <li>Jenkins finally replaced Hudson in 2017</li>
-                </ul><br>
-                <img src="res/Oracle_Jenkins_Hudson_Dispute.png" alt="InfoWorld Article on Hudson Dispute">
-                <!-- Image from https://www.infoworld.com/article/2624074/oracle-hands-hudson-to-eclipse--but-jenkins-fork-seems-permanent.html -->
-                <!--
-                    Source: https://en.wikipedia.org/wiki/Jenkins_(software)
-                -->
-			</section>
-            <!-- Build Server -->
-            <section>
-                <h2>What do I need a build server for?</h2>
+            </aside>
+            <!--
+                Source: https://www.jenkins.io/doc/
+            -->
+        </section>
+        <!-- History -->
+        <section>
+            <h2>History of Jenkins</h2>
+            <ul>
+                <li>Released February 2005 as "Hudson"</li>
+                <li>Renamed to Jenkins in 2011 after a dispute with Oracle</li>
+                <li>Both projects co-existed with Oracle claiming that Jenkins was the fork</li>
+                <li>Jenkins finally replaced Hudson in 2017</li>
+            </ul><br>
+            <img src="res/Oracle_Jenkins_Hudson_Dispute.png" alt="InfoWorld Article on Hudson Dispute">
+            <!-- Image from https://www.infoworld.com/article/2624074/oracle-hands-hudson-to-eclipse--but-jenkins-fork-seems-permanent.html -->
+            <!--
+                Source: https://en.wikipedia.org/wiki/Jenkins_(software)
+            -->
+        </section>
+        <!-- Build Server -->
+        <section>
+            <h2>What do I need a build server for?</h2>
+            <img src="https://confluence.atlassian.com/bamboo/files/289277285/289342279/2/1426549208892/CI+overview.png">
+            <aside class="notes">
                 <ul>
                     <li>Build Servers are used for CI/CD pipelines</li>
                     <li>Only one source of truth (the repository)<br>-> Therefore eliminates "it works on my machine"</li>
                     <li>Parallel tasks</li>
                 </ul>
-                <!--
-                    Source: https://deviq.com/build-server/
-                -->
-            </section>
-			<!-- CI/CD -->
-			<section>
-				<h2>What do I need CI/CD for?</h2>
-				<ul>
-					<li>"It works on my machine"</li>
-					<li>Central build server</li>
-					<li>Same environment for every build</li>
-				</ul>
-                <!--
-                    Source: https://www.infoworld.com/article/3271126/what-is-cicd-continuous-integration-and-continuous-delivery-explained.html
-                -->
-            </section>
-            <!-- How to install -->
+            </aside>
+            <!--
+                Source: https://deviq.com/build-server/
+            -->
+        </section>
+        <!-- CI/CD -->
+        <section>
+            <h2>What do I need CI/CD for?</h2>
+            <ul>
+                <li>"It works on my machine"</li>
+                <li>Central build server</li>
+                <li>Same environment for every build</li>
+            </ul>
+            <!--
+                Source: https://www.infoworld.com/article/3271126/what-is-cicd-continuous-integration-and-continuous-delivery-explained.html
+            -->
+        </section>
+        <!-- How to install -->
+        <section>
             <section>
                 <h2>How to install Jenkins</h2>
             </section>
@@ -773,6 +780,8 @@
                         --publish 2376:2376 \
                         docker:dind
                 </code></pre>
+            </section>
+            <section>
                 <pre><code data-trim data-noescape>
                     FROM jenkins/jenkins:2.249.3-slim
                     USER root
@@ -788,6 +797,8 @@
                     USER jenkins
                     RUN jenkins-plugin-cli --plugins blueocean:1.24.3
                 </code></pre>
+            </section>
+            <section>
                 <pre><code data-trim data-noescape data-line-numbers="1|2">
                     docker build -t my-docker-jenkins-image .
                     docker run my-docker-jenkins-image
@@ -799,20 +810,49 @@
                 <!--
                     Source: https://www.jenkins.io/doc/book/installing/
                 -->
-			</section>
-			<!-- Integrate with GitHub -->
-			<section>
-				<h2>How to integrate Jenkins with GitHub</h2>
-                <img src="https://applitools.com/wp-content/uploads/2018/11/APT_Jenkins_Gitgub_Diagram_2018-10-03-1.jpg" alt="GitHub and Jenkins Integration">
-			</section>
-			<!-- Capabilities -->
-			<section>
-				<h2>What is Jenkins capable of doing?</h2>
-			</section>
-			<!-- Why own build server -->
-			<section>
-				<h2>Why do I need a build server when there is GitHub actions?</h2>
             </section>
+        </section>
+        <!-- Integrate with GitHub -->
+        <section>
+            <h2>How to integrate Jenkins with GitHub</h2>
+            <img src="https://applitools.com/wp-content/uploads/2018/11/APT_Jenkins_Gitgub_Diagram_2018-10-03-1.jpg" alt="GitHub and Jenkins Integration">
+        </section>
+        <!-- Capabilities -->
+        <section>
+            <h2>What is Jenkins capable of doing?</h2>
+            <img src="https://www.edureka.co/blog/wp-content/uploads/2016/10/Jenkins-integration-jenkins-tutorial-Edureka.jpg">
+        </section>
+        <!-- Why own build server -->
+        <section>
+            <h2>Why do I need a build server when there is GitHub actions?</h2>
+            <ul>
+                <li>Self-hosted</li>
+                <li>More customizable</li>
+            </ul>
+            <aside class="notes">
+                <ul>
+                    <li>More cost-efficient</li>
+                </ul>
+            </aside>
+        </section>
+        <!-- How to create a project in Jenkins -->
+        <section>
+            <h2>How to create a project in Jenkins</h2>
+        </section>
+        <!-- How to use Jenkins in own project -->
+        <section>
+            <h2>How to use Jenkins in your own project</h2>
+            <aside class="notes">
+                <ul>
+                    <li>Running unit tests</li>
+                    <li>Building the project</li>
+                    <li>Running continuous tests, e.g. before a pull request can be accepted</li>
+                </ul>
+            </aside>
+        </section>
+        <!-- Jenkins at Betterzon -->
+        <section>
+            <h2>Demo of Jenkins use in our project</h2>
         </section>
     </div>
     <div class="slides" id="interconnect">
