@@ -1,6 +1,6 @@
-#Adding First Container 
+#Adding First Container   
 
-##TL;DR
+##TL;DR  
 Copy the full code into a File with the ending .sh  
 For Example you can use the sequence :  
     1. `vim installMe.sh`  
@@ -116,12 +116,12 @@ services:
 ENDOFFILE
 ```
 
-## Adding the Angular Container
-### Creating the Folder
+## Adding the Angular Container  
+### Creating the Folder  
 ```
 mkdir angular-app
 ```
-###Creating the Dockerfile
+###Creating the Dockerfile  
 ```
 cat > ./angular-app/dockerfile << ENDOFFILE
 FROM node
@@ -136,12 +136,12 @@ CMD ["npm","start"]
 ENDOFFILE
 ```
 
-##Adding the Secound Container
-### Creating the Folder
+##Adding the Secound Container  
+### Creating the Folder  
 ```
 mkdir express-server
 ```
-###Creating the Dockerfile
+###Creating the Dockerfile  
 ```
 cat > ./express-server/dockerfile << ENDOFFILE
 FROM node
@@ -155,7 +155,7 @@ EXPOSE 4200
 CMD ["npm","start"]
 ENDOFFILE
 ```
-###Creating the Packackge.json
+###Creating the Packackge.json  
 ```
 cat > ./express-server/package.json << ENDOFFILE
 {
@@ -207,8 +207,8 @@ cat > ./express-server/package.json << ENDOFFILE
 ENDOFFILE
 ```
 
-##Creating the "Stack"
-###Creating the Compose file
+##Creating the "Stack"  
+###Creating the Compose file  
 ```
 cat > ./docker-compose.yml << ENDOFFILE
 version: '3.0' # specify docker-compose version
@@ -233,7 +233,7 @@ services:
   - "27017:27017" # specify port forwarding
 ENDOFFILE
 ```
-###Building the Stack
+###Building the Stack  
 ``` docker-compose build  ```
-###Running the Stack
+###Running the Stack  
 ``` docker-compose up  ```
