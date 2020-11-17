@@ -6,9 +6,9 @@ For Example you can use the sequence :
     1. `vim installMe.sh`  
     2. Insert the Code down Below  
     3. `chmod 700 installMe.sh`  
-    4. `./installMe`
-    5. `docker-compose build`
-    6. `docker-compose up`
+    4. `./installMe`  
+    5. `docker-compose build`  
+    6. `docker-compose up`  
 ```
 #!/bin/sh
 mkdir angular-app
@@ -69,11 +69,11 @@ cp ./package.json ./express-server
 rm package.json
 
 cat > ./angular-app/dockerfile << ENDOFFILE
-FROM node:6
+FROM node
 RUN mkdir -p /usr/src/app
 WORKDIR /usr/src/app
 COPY package.json /usr/src/app
-RUN npm cache clean
+RUN npm cache clean --force
 RUN npm install
 COPY . /usr/src/app
 EXPOSE 4200
@@ -81,11 +81,11 @@ CMD ["npm","start"]
 ENDOFFILE
 
 cat > ./express-server/dockerfile << ENDOFFILE
-FROM node:6
+FROM node
 RUN mkdir -p /usr/src/app
 WORKDIR /usr/src/app
 COPY package.json /usr/src/app
-RUN npm cache clean
+RUN npm cache clean --force
 RUN npm install
 COPY . /usr/src/app
 EXPOSE 4200
@@ -124,11 +124,11 @@ mkdir angular-app
 ###Creating the Dockerfile
 ```
 cat > ./angular-app/dockerfile << ENDOFFILE
-FROM node:6
+FROM node
 RUN mkdir -p /usr/src/app
 WORKDIR /usr/src/app
 COPY package.json /usr/src/app
-RUN npm cache clean
+RUN npm cache clean --force
 RUN npm install
 COPY . /usr/src/app
 EXPOSE 4200
@@ -144,11 +144,11 @@ mkdir express-server
 ###Creating the Dockerfile
 ```
 cat > ./express-server/dockerfile << ENDOFFILE
-FROM node:6
+FROM node
 RUN mkdir -p /usr/src/app
 WORKDIR /usr/src/app
 COPY package.json /usr/src/app
-RUN npm cache clean
+RUN npm cache clean --force
 RUN npm install
 COPY . /usr/src/app
 EXPOSE 4200
