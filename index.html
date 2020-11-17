@@ -86,9 +86,7 @@
             <h2>Contents</h2>
             <ol type="1">
                 <li>Docker</li>
-                <li>Live-Demo for Docker</li>
                 <li>Jenkins</li>
-                <li>Live-Demo for Jenkins</li>
                 <li>Interconnection</li>
             </ol>
         </section>
@@ -351,7 +349,7 @@
         <!-- Positiv points for Containers-->
         <section>
             <section>
-                <h1>Positiv Aspects of Containers</h1>
+                <h1>Positive Aspects of Containers</h1>
             </section>
             <section>
                 Easy Deployment on nearly every Systemtype
@@ -461,6 +459,7 @@
             <script type="text/javascript">
                 var additionalOptions = {
                     default_bg_color: {r: 25, g: 25, b: 25},
+                    start_at_slide:0
                 }
 
                 timeline = new TL.Timeline('timeline-embed',
@@ -587,7 +586,7 @@
                 </ul>
             </section>
             <section>
-                <h1><a href="https://www.edureka.co/blog/docker-compose-containerizing-mean-stack-application/">Example of Angular Express and MongoDB</a></h1>
+                <h1><a href="https://www.edureka.co/blog/docker-compose-containerizing-mean-stack-application/">Example of Angular Express and MongoDB in Docker Compose</a></h1>
                 <img width="40%" src="https://d1jnx9ba8s6j9r.cloudfront.net/blog/wp-content/uploads/2017/10/watermark.png">  <br>
                 <ol>
                     <li class="fragment" data-fragment-index="1">Container 1 – Angular</li>
@@ -639,7 +638,7 @@
                     </ol>
                 </aside>
                 <h1>Docker Compose File</h1>
-                <pre style="height:525px;"><code style="height: 60%" data-trim data-fragment-index="1" data-line-numbers="3,8,15|4,9,16|5,6,10,11,17,18|12,13">
+                <pre style="height:525px;"><code style="height: 60%" data-trim data-fragment-index="1" data-line-numbers="3,8,15|4,9,16|5,10|17|6,7,11,12,18,19|13,14">
                     # Define the services/ containers to be run
                     services:
                     #######################
@@ -817,6 +816,46 @@
         </section>
     </div>
     <div class="slides" id="interconnect">
+        <section>
+            <h1>Interconnection</h1>
+        </section>
+        <section>
+            <section>
+                <h1><a href="https://code-maze.com/ci-jenkins-docker/">Setting up an Jenkins Instance into an Docker Container</a></h1>
+            </section>
+            <section>
+                <aside class="notes">
+                    <ol>
+                        <li># Starting off with the Jenkins base Image</li>
+                        <li># Installing the plugins we need using the in-built install-plugins.sh script</li>
+                        <li># Setting up environment variables for Jenkins admin user</li>
+                        <li># Skip the initial setup wizard</li>
+                        <li># Start-up scripts to set number of executors and creating the admin user</li>
+                        <li># Mounting Volume</li>
+                    </ol>
+                </aside>
+                <h1 data-fragment-index="1">The Docker File</h1>
+                <pre><code data-trim data-fragment-index="2" data-line-numbers="1|3|5,6|8|10,11|13">
+                    FROM jenkins/jenkins:latest
+
+                    RUN /usr/local/bin/install-plugins.sh git matrix-auth workflow-aggregator docker-workflow blueocean credentials-binding
+
+                    ENV JENKINS_USER admin
+                    ENV JENKINS_PASS admin
+
+                    ENV JAVA_OPTS -Djenkins.install.runSetupWizard=false
+
+                    COPY executors.groovy /usr/share/jenkins/ref/init.groovy.d/
+                    COPY default-user.groovy /usr/share/jenkins/ref/init.groovy.d/
+
+                    VOLUME /var/jenkins_home
+                </code></pre>
+            </section>
+        </section>
+        <section>
+            <h1>Using Docker IN Jenkins</h1>
+            <img src="https://code-maze.com/wp-content/uploads/2018/07/HighLevelFlow.png">
+        </section>
     </div>
 </div>
 <div id="scripts">
