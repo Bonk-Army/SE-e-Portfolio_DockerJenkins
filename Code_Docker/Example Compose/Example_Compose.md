@@ -12,10 +12,10 @@ For Example you can use the sequence :
 <details>
     <summary>Click to toggle contents of `code`</summary>
     ```
+   
     #!/bin/sh
     mkdir angular-app
     mkdir express-server
-    
     cat > ./package.json << ENDOFFILE
     {
       "name": "frontend",
@@ -64,6 +64,9 @@ For Example you can use the sequence :
       }
     }
     ENDOFFILE
+    #!/bin/sh
+        mkdir angular-app
+        mkdir express-server
     
     cp ./package.json ./angular-app
     cp ./package.json ./express-server
