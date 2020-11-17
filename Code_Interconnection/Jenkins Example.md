@@ -4,7 +4,8 @@
 Copy the full code into a File with the ending .sh  
 For Example you can use the sequence :  
     1. `vim installMe.sh`  
-    2. Insert the Code down Below or use ` wget https://raw.githubusercontent.com/Mueller-Patrick/SE-e-Portfolio/master/Code_Interconnection/installMe.sh`   
+    2. Insert the Code down Below or use 
+    1.5 instead for 1+2 ` wget https://raw.githubusercontent.com/Mueller-Patrick/SE-e-Portfolio/master/Code_Interconnection/installMe.sh`     
     3. `chmod 700 installMe.sh`  
     4. `./installMe`  
     5. `cd jenkins-master`  
@@ -15,7 +16,7 @@ For Example you can use the sequence :
     10. `cd ..`   
     11. `docker-compose up`  
 
-##Creating the Jenkins Master
+## Creating the Jenkins Master
 ### Creating the Folder  
 ```
 mkdir jenkins-master
