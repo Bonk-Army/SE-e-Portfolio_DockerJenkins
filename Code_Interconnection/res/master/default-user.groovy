@@ -15,10 +15,8 @@ user.save()
 jenkins.getAuthorizationStrategy().add(Jenkins.ADMINISTER, env.JENKINS_USER)
 jenkins.save()
 
-if(!jenkins.instance.isQuietingDown()) {
-    def j = jenkins.instance
-    if(j.getCrumbIssuer() != null) {
-        j.setCrumbIssuer(null)
-        j.save()
-    }
+if(jenkins.getCrumbIssuer() != null) {
+    jenkins.setCrumbIssuer(null)
+    jenkins.save()
 }
+
