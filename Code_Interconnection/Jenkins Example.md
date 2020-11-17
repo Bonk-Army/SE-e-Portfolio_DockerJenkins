@@ -203,8 +203,18 @@ services:
 ENDOFFILE
 ```
 ### Building the Master
-``` docker-compose build jenkins-master ```
+``` 
+cd jenkins-master
+docker build -t jenkins-master . 
+```
+### Getting back into the Root Folder
+```
+cd ..
+```
 ### Building the Slave
-``` docker-compose build jenkins-slave ```
+``` 
+cd jenkins-slave
+docker build -t jenkins-slave .
+```
 ### Running the Stack  
 ``` docker-compose up  ```
