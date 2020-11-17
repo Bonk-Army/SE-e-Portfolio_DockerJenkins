@@ -25,7 +25,7 @@ cat > ./page-contents/test.html << ENDOFFILE
 ENDOFFILE
 ```
 After to start the container with your linked directory ~  
-```docker run -it -d -p 8080:80 --name web -v ~/page-contents:/usr/share/nginx/html nginx```
+```docker run -it -d -p 8080:80 --name NGinxMount -v ~/page-contents:/usr/share/nginx/html nginx```
 | Command          	| Parameter                             	| Description                                        	|
 |------------------	|---------------------------------------	|----------------------------------------------------	|
 | -it               |                                           | allocate Pseudo TTY (Used to Attach and Detach)       |
@@ -63,6 +63,6 @@ docker build -t webserver .
 
 Run this new Image with the Config of : Port 8080 of the Container gets linked to 80, the name "web" and the image "webserver"
 ```
-docker run -it --rm -d -p 8080:80 --name web webserver
+docker run -it --rm -d -p 8080:80 --name NGinxNoMount webserver
 ```
 `Important : we just edit the Command from the First Method to use our Local Docker Image`

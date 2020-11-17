@@ -96,38 +96,87 @@
     <div class="slides" id="docker" style="">
         <!-- Title Page -->
         <section>
+            <aside class="notes">
+                <ul>
+                    <li>Welcome to my Part of this Presentation about Docker</li>
+                    <li>roughly 20 to 25 minutes</li>
+                    <ul>
+                        <li>10 - 15 Minutes about Theory</li>
+                        <li>10 Minutes Demo about Docker in Dockerplayground</li>
+                        <ul>
+                            <li>Mounting</li>
+                            <li>Docker Commands</li>
+                            <li>etc</li>
+                        </ul>
+                    </ul>
+                </ul>
+            </aside>
             <img width="80%"
                  src="https://upload.wikimedia.org/wikipedia/commons/4/4e/Docker_%28container_engine%29_logo.svg">
+            <
         </section>
         <!-- TOC -->
         <section>
             <aside class="notes">
-                <ul>
-                    <li>Table of Content for my Part about Docker</li>
-                    <li>Roughly 15 Minutes</li>
-                    <li>4 Main Points</li>
-                    <li>Starting at IT Landscape</li>
-                    <li>Transition</li>
-                    <li>Going into Docke</li>
-                </ul>
+                <ol>
+                    <li>Two Big Topics to deal with</li>
+                    <li>IT Landscape is Chaning</li>
+                    <ol>
+                        <li>Introduction why we could use Docker</li>
+                        <li>Background</li>
+                    </ol>
+                    <li>Docker</li>
+                    <ol>
+                        <li>What is it?</li>
+                        <li>History</li>
+                        <li>Example Architecture</li>
+                        <li>Live Demo</li>
+                    </ol>
+                </ol>
             </aside>
             <h1>Contents</h1>
             <ol>
                 <li>The IT Landscape is changing....</li>
-                <li>What is a Container ?</li>
-                <li>Container Concept</li>
-                <li>What is Docker ?</li>
-                <li>History of Docker</li>
-                <li>How can we use Docker ?</li>
+                <ol>
+                    <li>Container Concept</li>
+                    <li>Why are we using this Concept?</li>
+                </ol>
+                <li>Docker</li>
+                <ol>
+                    <li>What is Docker ?</li>
+                    <li>History of Docker</li>
+                    <li>Docker Architcture</li>
+                    <li>Example of an Docker Workflow</li>
+                    <li>Live Demo</li>
+                    <li>Docker Compose and Swarm</li>
+                </ol>
             </ol>
         </section>
         <!-- IT Change -->
         <section>
             <aside class="notes">
-                <ul>
-                    <li>Mostly Monoliths</li>
-                    <li>Now many Microservices which can be made by Docker</li>
-                </ul>
+                <ol>
+                    <li>First we come to the IT Landscape change</li>
+                    <li>Left : Monolith</li>
+                    <ul>
+                        <li>Everything "clues" together</li>
+                        <li>Inseperatable</li>
+                        <li>Big Construct with no possibility to change some Parts</li>
+                        <li>interlocked parts</li>
+                    </ul>
+                    <li>Right : Microservices</li>
+                    <ul>
+                        <li>Splitting the UI into many Microservices</li>
+                        <li>Many positiv Aspects</li>
+                        <li>Easy to change some Components</li>
+                        <li>UI as an composition of many Microservies</li>
+                        <ol>
+                            <li>Searchbar</li>
+                            <li>Prompt</li>
+                            <li>My Account</li>
+                        </ol>
+                    </ul>
+                </ol>
             </aside>
             <h1>Change of the IT Landscape</h1>
             <img width="50%" style="border-radius: 8px;"
@@ -137,21 +186,51 @@
         <section>
             <!-- -->
             <section>
+                <aside class="notes">
+                    <ol>
+                        <li>Not to the Container Concept and how it functions</li>
+                    </ol>
+                </aside>
                 <h1>The Container Concept</h1>
                 <img width="30%" src="res/container.png">
             </section>
             <!-- Docker Image-->
             <section>
+                <aside class="notes">
+                    <ol>
+                        <li>Imagine some Independant Units for every Part of your project</li>
+                        <li>f.e. An Webservercontainer, an Databasecontainer etc</li>
+                    </ol>
+                </aside>
                 <img width="40%" ,
                      style="border-radius: 8px;"
                      src="https://cs-geonode.readthedocs.io/en/2.8_a/_images/docker.png">
             </section>
             <!-- Terms -->
             <section>
+                <aside class="notes">
+                    <ol>
+                        <li>Now we get to the Important Terms</li>
+                    </ol>
+                </aside>
                 <h1>Important Terms</h1>
             </section>
             <!-- Layer -->
             <section>
+                <aside class="notes">
+                    <ol>
+                        <li>Layer are Parts of Images</li>
+                        <li><a href="https://hub.docker.com/layers/nginx/library/nginx/latest/images/sha256-89ac93d6b02111dddd1c6259cfb782a429da265b97c8391f453693a9bcb81957?context=explore">Link to Example</a> </li>
+                        <li>A Layer Could be many Things</li>
+                        <ul>
+                            <li>CMD Command</li>
+                            <li>Files</li>
+                            <li>ENV Variables</li>
+                            <li>Opening Ports</li>
+                            <li>etc....</li>
+                        </ul>
+                    </ol>
+                </aside>
                 <h1>Layer</h1>
                 <p class="fragment" data-fragment-index="1">Part of an Image</p>
                 <p class="fragment" data-fragment-index="2">Could be Files or Command</p>
@@ -160,6 +239,12 @@
             </section>
             <!-- Image -->
             <section>
+                <aside class="notes">
+                    <ol>
+                        <li>A Blueprint for an Container</li>
+                        <li>Consists of many Layers</li>
+                    </ol>
+                </aside>
                 <h1>Image</h1>
                 <p class="fragment" data-fragment-index="1">Image of a "Container"</p>
                 <p class="fragment" data-fragment-index="2">Consists of multiple Layers</p>
@@ -168,6 +253,13 @@
             </section>
             <!-- Container -->
             <section>
+                <aside class="notes">
+                    <ol>
+                        <li>A Container is an Instanced Version of an Image</li>
+                        <li>is runnable</li>
+                        <li>Many Containers can run the same image f.e Load Balanced</li>
+                    </ol>
+                </aside>
                 <h1>Container</h1>
                 <p class="fragment" data-fragment-index="1">Instanced version of an Image</p>
                 <p class="fragment" data-fragment-index="2">Many Containers can run the same Image</p>
@@ -176,6 +268,13 @@
             </section>
             <!-- Dockerfile -->
             <section>
+                <aside class="notes">
+                    <ol>
+                        <li>Dockerfile is a "Programmer" Way of setting Layers</li>
+                        <li>Blueprint in a Coded Form</li>
+                        <li>Consists mostly out of Layers</li>
+                    </ol>
+                </aside>
                 <h1>Dockerfile</h1>
                 <pre><code data-trim data-noescape data-line-numbers="2|4|6|8|10|12">
                         # Use the official image as a parent image.
@@ -196,6 +295,12 @@
             </section>
             <!-- Registry -->
             <section>
+                <aside class="notes">
+                    <ol>
+                        <li>Used to Store and distribute Docker Images</li>
+                        <li><a href="https://hub.docker.com/">We can takle a look at Dockerhub</a></li>
+                    </ol>
+                </aside>
                 <h1>Registry</h1>
                 <p class="fragment" data-fragment-index="1">Service to administrate Images</p>
                 <p class="fragment" data-fragment-index="2">Biggest One : Docker Hub</p>
@@ -203,6 +308,14 @@
             </section>
             <!-- Volume -->
             <section>
+                <aside class="notes">
+                    <ol>
+                        <li>Space for Data</li>
+                        <li>Best Example : your Harddrive or SSD</li>
+                        <li>In Container Context its mostly a folder, which is directly mounted into your Container</li>
+                        <li>Examples Later</li>
+                    </ol>
+                </aside>
                 <h1>Volume</h1>
                 <p class="fragment" data-fragment-index="1">Mostly folder(s) on the Host System</p>
                 <p class="fragment" data-fragment-index="2">Volumes are "mounted" into a Container</p>
@@ -210,6 +323,13 @@
             </section>
             <!-- Network -->
             <section>
+                <aside class="notes">
+                    <ol>
+                        <li>The Network connection of an Container</li>
+                        <li>Mostly uses the Host Systems Adapter</li>
+                        <li>Important if Ports are Exposed!</li>
+                    </ol>
+                </aside>
                 <h1>Network</h1>
                 <p class="fragment" data-fragment-index="1">Connection to the "outer" World could be Local or on the Internet</p>
                 <p class="fragment" data-fragment-index="2">The Container uses the Host's Connection and Adapter</p>
@@ -217,6 +337,12 @@
             </section>
             <!-- Node -->
             <section>
+                <aside class="notes">
+                    <ol>
+                        <li>Simply a "Worker" which is Part of an bigger Network</li>
+                        <li>Tasks by the Network Administrator / Overseer</li>
+                    </ol>
+                </aside>
                 <h1>Node</h1>
                 <p class="fragment" data-fragment-index="1">VM or physical Machine, which is a member of a Network</p>
                 <p class="fragment" data-fragment-index="3"><img src="https://docs.docker.com/engine/swarm/images/swarm-diagram.png"></p>
@@ -228,15 +354,27 @@
                 <h1>Positiv Aspects of Containers</h1>
             </section>
             <section>
-                Easy Deployment
+                Easy Deployment on nearly every Systemtype
             </section>
             <section>
+                <aside class="notes">
+                    <ol>
+                        <li>Just what you need</li>
+                        <li>very minimal and small Kernel</li>
+                    </ol>
+                </aside>
                 Lightway
             </section>
             <section>
                 CI/CD compatible (&#128064 E-Portfolie Jenkins)
             </section>
             <section>
+                <aside class="notes">
+                    <ol>
+                        <li>We look at that later</li>
+                        <li>You can easy adjust the Containers f.e. If you need more Webservers</li>
+                    </ol>
+                </aside>
                 <h5>Scalable</h5>
                 <ul>
                     <li>Horizontal</li>
@@ -249,6 +387,14 @@
         </section>
         <!-- What is Docker-->
         <section>
+            <aside class="notes">
+                <ol>
+                    <li>So now about my Topic for the E Portfolio</li>
+                    <li>Docker is an Layer above the Operating System to Run Containers</li>
+                    <li>Uses the Ressources of the Host</li>
+                    <li>In short : Runs Container Images</li>
+                </ol>
+            </aside>
             <h1>So what is Docker ?</h1>
             <img style="border-radius: 8px;" width="30%" height="60%"
                  src="https://golangnews.org/wp-content/uploads/2020/07/1-containers-abc-729x640.png">
@@ -257,6 +403,17 @@
         <section>
             <aside class="notes">
                 <h1>STRG und Pfeiltasten um durch Timeline zu gehen</h1>
+                <ol>
+                    <li>Docker Inc was founded in 2010</li>
+                    <li>First intern Revision of Docker gets launched</li>
+                    <li>The Project gets imported to Git</li>
+                    <li>Published on PyCon 2013</li>
+                    <li>Creating the Moby Project for Open Research and Development of Docker</li>
+                    <li>Kubernetes Projectiv to provide Docker containers to all private public and hybrid cloud environments</li>
+                    <li>Downfall begins</li>
+                    <li>Redhat replacing Docker</li>
+                    <li>Mirandis bought Docker Inc.</li>
+                </ol>
             </aside>
             <h2>The History of Docker</h2>
             <!-- 1 -->
@@ -313,16 +470,55 @@
         </section>
         <!-- Docker Architektur -->
         <section>
+            <aside class="notes">
+                <ol>
+                    <li>Left</li>
+                    <ol>
+                        <li>Access the Container by CLI or API by the Daemon</li>
+                    </ol>
+                    <li>Middle</li>
+                    <ol>
+                        <li>Can See Images</li>
+                        <li>Local or Downloaded from HUB</li>
+                        <li>Containers -> Green Line for the Run by Daemon</li>
+                    </ol>
+                    <li>Right</li>
+                    <ol>
+                        <li>Registry could be private or DockerHub to get the Images by the Daemon</li>
+                    </ol>
+                </ol>
+            </aside>
             <h1>Docker Architecture</h1>
             <img src="https://www.01net.it/wp-content/uploads/sites/14/2017/07/container-devops.png">
         </section>
         <!-- Docker Workflow -->
         <section>
             <section>
-                <h1>Docker Workflow</h1>
+                <aside class="notes">
+                    <ol>
+                        <li>Typically Docker Workflow with DockerHub</li>
+                        <ol>
+                            <li>Building Image</li>
+                            <li>Upload to Docker Registry</li>
+                            <li>Run the Image by Pulling it</li>
+                        </ol>
+                    </ol>
+                </aside>
+                <h1>Docker Workflow  with DockerHub</h1>
                 <img width="60%" src="https://miro.medium.com/max/1490/0*EMmmZ8pZPRzfewJy.png">
             </section>
             <section>
+                <aside class="notes">
+                    <ol>
+                        <li>Here we can see a Dockerfile for the Deployment of a Node.js Server</li>
+                        <li>Adding the Base Image</li>
+                        <li>Setting Work Directory</li>
+                        <li>Copy Files (package*.json) into the Container</li>
+                        <li >Install Dependencies ("npm install")</li>
+                        <li>Copy Content</li>
+                        <li>Port Opening</li>
+                    </ol>
+                </aside>
                 <h1>Dockerfile Example</h1>
                 <pre><code data-trim data-fragment-index="1" data-line-numbers="1|2|3|4|5|6|7">
                     # Filename: Dockerfile.build
@@ -366,20 +562,105 @@
                 </ul>
             </section>
             <section>
-                <h1>For Completion : Docker Swarm</h1>
-                <img style="border-radius: 8px;width: 40%;" src="https://stefanscherer.github.io/content/images/2016/03/windows_swarm_demo.png">
+                <aside class="notes">
+                    <ol>
+                        <li>Support will get Dropped</li>
+                        <li>Mostly used for Decentralized Designes</li>
+                        <li>Load Balancing Feature</li>
+                        <li>Many Clusters an Many Servers can run in a Swarm</li>
+                    </ol>
+                </aside>
+                <h1><a href="https://docs.docker.com/engine/swarm/">For Completion : Docker Swarm</a></h1>
+                <img style="border-radius: 8px;width: 40%;" src="./res/swarm.png">
             </section>
         </section>
         <!-- Outlooks -->
         <section style="width: 100%;height: 85%;padding-top: 50px">
-            <h1>Outlooks</h1>
-            Where can you integrate Docker into your Project ? <br> <br>
-            <ul>
-                <li class="fragment" data-fragment-index="1">Database Server</li>
-                <li class="fragment" data-fragment-index="2">Node.js Server</li>
-                <li class="fragment" data-fragment-index="2">Your Webapp f.e. Angular, React</li>
-                <li class="fragment" data-fragment-index="3">CI/CD Pipeline : Jenkins ?</li>
-            </ul>
+            <section>
+                <h1>Outlooks</h1>
+                Where can you integrate Docker into your Project ? <br> <br>
+                <ul>
+                    <li class="fragment" data-fragment-index="1">Database Server</li>
+                    <li class="fragment" data-fragment-index="2">Node.js Server</li>
+                    <li class="fragment" data-fragment-index="2">Your Webapp f.e. Angular, React</li>
+                    <li class="fragment" data-fragment-index="3">CI/CD Pipeline : Jenkins ?</li>
+                </ul>
+            </section>
+            <section>
+                <h1><a href="https://www.edureka.co/blog/docker-compose-containerizing-mean-stack-application/">Example of Angular Express and MongoDB</a></h1>
+                <img width="40%" src="https://d1jnx9ba8s6j9r.cloudfront.net/blog/wp-content/uploads/2017/10/watermark.png">  <br>
+                <ol>
+                    <li class="fragment" data-fragment-index="1">Container 1 – Angular</li>
+                    <li class="fragment" data-fragment-index="2">Container 2  – NodeJS and ExpressJS</li>
+                    <li class="fragment" data-fragment-index="3">Container 3 – MongoDB</li>
+                </ol>
+            </section>
+            <section>
+                <h1>Container 1 – Angular</h1>
+                <pre><code data-trim data-fragment-index="1">
+                    FROM node:6
+                    RUN mkdir -p /usr/src/app
+                    WORKDIR /usr/src/app
+                    COPY package.json /usr/src/app
+                    RUN npm cache clean
+                    RUN npm install
+                    COPY . /usr/src/app
+                    EXPOSE 4200
+                    CMD ["npm","start"]
+                </code></pre>
+            </section>
+            <section>
+                <h1>Container 2  – NodeJS and ExpressJS</h1>
+                <pre><code data-trim data-fragment-index="1">
+                    FROM node:6
+                    RUN mkdir -p /usr/src/app
+                    WORKDIR /usr/src/app
+                    COPY package.json /usr/src/app
+                    RUN npm cache clean
+                    RUN npm install
+                    COPY . /usr/src/app
+                    EXPOSE 3000
+                    CMD ["npm","start"]
+                </code></pre>
+            </section>
+            <section>
+                <h1>Container 3 – MongoDB</h1>
+                <ul>
+                    <li>For the DB Part we have no need to Change the Image so we pull the Default one....</li>
+                </ul>
+            </section>
+            <section>
+                <aside class="notes">
+                    <ol>
+                        <li>Name of the Servies</li>
+                        <li>Directory of the Docker buildfiles</li>
+                        <li>Ports which are exposed for this Container</li>
+                        <li>Link Services</li>
+                    </ol>
+                </aside>
+                <h1>Docker Compose File</h1>
+                <pre style="height:525px;"><code style="height: 60%" data-trim data-fragment-index="1" data-line-numbers="3,8,15|4,9,16|5,6,10,11,17,18|12,13">
+                    # Define the services/ containers to be run
+                    services:
+                    #######################
+                     angular:
+                      build: angular-app
+                      ports:
+                      - "4200:4200"
+                    #######################
+                     express:
+                      build: express-server
+                      ports:
+                      - "3000:3000"
+                      links:
+                      - database
+                    #######################
+                     database:
+                      image: mongo
+                      ports:
+                      - "27017:27017"
+                </code></pre>
+            </section>
         </section>
     </div>
     <div class="slides" id="jenkins">
