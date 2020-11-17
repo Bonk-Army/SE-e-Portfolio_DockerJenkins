@@ -25,9 +25,10 @@ cat > ./page-contents/test.html << ENDOFFILE
 ENDOFFILE
 ```
 After to start the container with your linked directory ~  
-```docker run -d -p 8080:80 --name web -v ~/page-contents:/usr/share/nginx/html nginx```
+```docker run -it -d -p 8080:80 --name web -v ~/page-contents:/usr/share/nginx/html nginx```
 | Command          	| Parameter                             	| Description                                        	|
 |------------------	|---------------------------------------	|----------------------------------------------------	|
+| -it               |                                           | allocate Pseudo TTY (Used to Attach and Detach)       |
 | -d \|\| --detach 	|                                       	| Run Container in Background and print Container ID 	|
 | -p \|\| --expose 	| 8080:80                               	| Expose a Port or a Range of Ports                  	|
 | --name           	| web                                   	| Assign a name to a container                       	|

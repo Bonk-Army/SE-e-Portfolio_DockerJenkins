@@ -349,8 +349,26 @@
         </section>
         <!-- For Completion -->
         <section>
-            <h1>For Completion : Docker Swarm</h1>
-            <img style="border-radius: 8px;width: 40%;" src="https://stefanscherer.github.io/content/images/2016/03/windows_swarm_demo.png">
+            <section style=":not(pre) > code {
+                                display: inline !important;
+                            }">
+                <h1><a href="https://docs.docker.com/compose/">Docker Compose</a></h1>
+                <img src="https://i0.wp.com/www-stage.docker.com/blog/wp-content/uploads/2020/02/Compose.png?fit=200%2C219&ssl=1">
+                <ul>
+                    <li class="fragment" data-fragment-index="1">Defining and running multi-container Docker applications</li>
+                    <li class="fragment" data-fragment-index="2">use a YAML file to configure your applications Service</li>
+                    <li class="fragment" data-fragment-index="3">create and start all the services from your configuration</li>
+                    <ol>
+                        <li class="fragment" data-fragment-index="4">Define your app’s environment with a Dockerfile so it can be reproduced anywhere.</li>
+                        <li class="fragment" data-fragment-index="5">Define the services that make up your app in docker-compose.yml so they can be run together in an isolated environment.</li>
+                        <li class="fragment" data-fragment-index="6">Run <code style="color:red">docker-compose up</code> and Compose starts and runs your entire app.</li>
+                    </ol>
+                </ul>
+            </section>
+            <section>
+                <h1>For Completion : Docker Swarm</h1>
+                <img style="border-radius: 8px;width: 40%;" src="https://stefanscherer.github.io/content/images/2016/03/windows_swarm_demo.png">
+            </section>
         </section>
         <!-- Outlooks -->
         <section style="width: 100%;height: 85%;padding-top: 50px">
@@ -358,7 +376,8 @@
             Where can you integrate Docker into your Project ? <br> <br>
             <ul>
                 <li class="fragment" data-fragment-index="1">Database Server</li>
-                <li class="fragment" data-fragment-index="2">Webserver</li>
+                <li class="fragment" data-fragment-index="2">Node.js Server</li>
+                <li class="fragment" data-fragment-index="2">Your Webapp f.e. Angular, React</li>
                 <li class="fragment" data-fragment-index="3">CI/CD Pipeline : Jenkins ?</li>
             </ul>
         </section>
