@@ -135,7 +135,8 @@ For Example you can use the sequence :
     ```
 </details>
 
-## Adding Angular Container  
+## Adding Angular Container 
+You need to have an Example Angular Project in this Folder!!!! (Your src/app/ Folder)
 ### Creating the Folder  
 ```
 mkdir angular-app
