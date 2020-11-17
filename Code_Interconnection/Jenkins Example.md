@@ -114,8 +114,8 @@ ENDOFFILE
 ```
 ### Getting the Ressources
 ```
-wget 
-wget 
+wget https://raw.githubusercontent.com/Mueller-Patrick/SE-e-Portfolio/master/Code_Interconnection/res/master/default-user.groovy
+wget https://raw.githubusercontent.com/Mueller-Patrick/SE-e-Portfolio/master/Code_Interconnection/res/master/executors.groovy
 ```
 ### Getting back into the Root Folder
 ```
@@ -127,9 +127,13 @@ cd ..
 ```
 mkdir jenkins-slave
 ```
+# Changing into the Folder
+```
+cd jenkins-slave
+```
 ### Creating the Dockerfile  
 ```
-cat > ./jenkins-slave/dockerfile << ENDOFFILE
+cat > ./dockerfile << ENDOFFILE
 FROM ubuntu:16.04
 
 # Install Docker CLI in the agent
@@ -164,6 +168,14 @@ ENV CLEAN_WORKING_DIR "true"
 
 CMD [ "python", "-u", "/var/lib/jenkins/slave.py" ]
 ENDOFFILE
+```
+### Getting the Ressources
+```
+wget https://raw.githubusercontent.com/Mueller-Patrick/SE-e-Portfolio/master/Code_Interconnection/res/slave/slave.py
+```
+### Getting back into the Root Folder
+```
+cd ..
 ```
 
 ### Creating the Compose file  

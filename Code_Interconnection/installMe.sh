@@ -18,9 +18,13 @@ COPY executors.groovy /usr/share/jenkins/ref/init.groovy.d/
 COPY default-user.groovy /usr/share/jenkins/ref/init.groovy.d/
 VOLUME /var/jenkins_home
 ENDOFFILE
-wget https://raw.githubusercontent.com/CodeMazeBlog/docker-series/docker-series-continuous-integration-jenkins-end/jenkins-docker/master/default-user.groovy
+wget https://raw.githubusercontent.com/Mueller-Patrick/SE-e-Portfolio/master/Code_Interconnection/res/master/default-user.groovy
+wget https://raw.githubusercontent.com/Mueller-Patrick/SE-e-Portfolio/master/Code_Interconnection/res/master/executors.groovy
 
-cat > ./jenkins-slave/dockerfile << ENDOFFILE
+cd ..
+
+cd jenkins-slave
+cat > ./dockerfile << ENDOFFILE
 FROM ubuntu:16.04
 # Install Docker CLI in the agent
 RUN apt-get update && apt-get install -y apt-transport-https ca-certificates
@@ -48,22 +52,25 @@ ENV SLAVE_WORING_DIR ""
 ENV CLEAN_WORKING_DIR "true"
 CMD [ "python", "-u", "/var/lib/jenkins/slave.py" ]
 ENDOFFILE
+wget https://raw.githubusercontent.com/Mueller-Patrick/SE-e-Portfolio/master/Code_Interconnection/res/slave/slave.py
+
+cd ..
 
 cat > ./docker-compose.yml << ENDOFFILE
 version: '3.1'
 services:
     jenkins:
+        build: jenkins-master
         container_name: jenkins
         ports:
             - '8080:8080'
             - '50000:50000'
-        image: localhost:5000/jenkins
     jenkins-slave:
+        build: jenkins-slave
         container_name: jenkins-slave
         restart: always
         environment:
             - 'JENKINS_URL=http://jenkins:8080'
-        image: localhost:5000/jenkins-slave
         volumes:
             - /var/run/docker.sock:/var/run/docker.sock  # Expose the docker daemon in the container
             - /home/jenkins:/home/jenkins # Avoid mysql volume mount issue
