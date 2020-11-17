@@ -49,9 +49,6 @@ cat > ./package.json << ENDOFFILE
   }
 }
 ENDOFFILE
-#!/bin/sh
-    mkdir angular-app
-    mkdir express-server
 
 cp ./package.json ./angular-app
 cp ./package.json ./express-server
