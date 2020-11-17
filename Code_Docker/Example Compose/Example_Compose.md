@@ -18,7 +18,7 @@
 Copy the full code into a File with the ending .sh  
 For Example you can use the sequence :  
     1. `vim installMe.sh`  
-    2. Insert the Code down Below or use 
+    2. Insert the Code down Below or use ` wget https://raw.githubusercontent.com/Mueller-Patrick/SE-e-Portfolio/master/Code_Docker/Example%20Compose/installMe.sh` 
     3. `chmod 700 installMe.sh`  
     4. `./installMe`  
     5. `docker-compose build`  
