@@ -111,7 +111,6 @@
             </aside>
             <img width="80%"
                  src="https://upload.wikimedia.org/wikipedia/commons/4/4e/Docker_%28container_engine%29_logo.svg">
-            <
         </section>
         <!-- TOC -->
         <section>
@@ -197,7 +196,7 @@
                 <aside class="notes">
                     <ol>
                         <li>Imagine some Independant Units for every Part of your project</li>
-                        <li>f.e. An Webservercontainer, an Databasecontainer etc</li>
+                        <li>f.e. A Webservercontainer, a Databasecontainer etc</li>
                     </ol>
                 </aside>
                 <img width="40%" ,
@@ -230,7 +229,7 @@
                     </ol>
                 </aside>
                 <h1>Layer</h1>
-                <p class="fragment" data-fragment-index="1">Part of an Image</p>
+                <p class="fragment" data-fragment-index="1">Part of a Image</p>
                 <p class="fragment" data-fragment-index="2">Could be Files or Command</p>
                 <p class="fragment" data-fragment-index="3"><img
                         src="https://miro.medium.com/max/450/1*kTDjPNUqGX8ZdLidbukheA.png"></p>
@@ -239,7 +238,7 @@
             <section>
                 <aside class="notes">
                     <ol>
-                        <li>A Blueprint for an Container</li>
+                        <li>A Blueprint for a Container</li>
                         <li>Consists of many Layers</li>
                     </ol>
                 </aside>
@@ -253,13 +252,13 @@
             <section>
                 <aside class="notes">
                     <ol>
-                        <li>A Container is an Instanced Version of an Image</li>
+                        <li>A Container is an instanced Version of a Image</li>
                         <li>is runnable</li>
                         <li>Many Containers can run the same image f.e Load Balanced</li>
                     </ol>
                 </aside>
                 <h1>Container</h1>
-                <p class="fragment" data-fragment-index="1">Instanced version of an Image</p>
+                <p class="fragment" data-fragment-index="1">Instanced version of a Image</p>
                 <p class="fragment" data-fragment-index="2">Many Containers can run the same Image</p>
                 <p class="fragment" data-fragment-index="3"><img
                         src="https://geekflare.com/wp-content/uploads/2019/07/dockerfile-697x270.png"></p>
@@ -459,7 +458,7 @@
             <script type="text/javascript">
                 var additionalOptions = {
                     default_bg_color: {r: 25, g: 25, b: 25},
-                    start_at_slide:0
+                    start_at_slide:0,
                 }
 
                 timeline = new TL.Timeline('timeline-embed',
@@ -874,7 +873,7 @@
                         <li># Mounting Volume</li>
                     </ol>
                 </aside>
-                <h1 data-fragment-index="1">The Docker File</h1>
+                <h1 data-fragment-index="1">The Master - Docker File</h1>
                 <pre><code data-trim data-fragment-index="2" data-line-numbers="1|3|5,6|8|10,11|13">
                     FROM jenkins/jenkins:latest
 
@@ -889,6 +888,58 @@
                     COPY default-user.groovy /usr/share/jenkins/ref/init.groovy.d/
 
                     VOLUME /var/jenkins_home
+                </code></pre>
+            </section>
+            <section>
+                <aside class="notes">
+                    <ol>
+
+                    </ol>
+                </aside>
+                <h1 data-fragment-index="1">The Slave - Docker File</h1>
+                <pre><code data-trim data-fragment-index="2" data-line-numbers="">
+                    FROM ubuntu:16.04
+                    # Install Docker CLI in the agent
+                    RUN apt-get update && apt-get install -y apt-transport-https ca-certificates
+                    RUN apt-key adv --keyserver hkp://p80.pool.sks-keyservers.net:80 --recv-keys 58118E89F3A912897C070ADBF76221572C52609D
+                    RUN echo "deb [arch=amd64] https://download.docker.com/linux/ubuntu xenial stable" > /etc/apt/sources.list.d/docker.list
+                    RUN apt-get update && apt-get install -y docker-ce --allow-unauthenticated
+                    RUN apt-get update && apt-get install -y openjdk-8-jre curl python python-pip git
+                    RUN easy_install jenkins-webapi
+                    # Get docker-compose in the agent container
+                    .
+                    .
+                    .
+                    .
+                </code></pre>
+            </section>
+            <section>
+                <aside class="notes">
+                    <ol>
+
+                    </ol>
+                </aside>
+                <h1 data-fragment-index="1">The Compose File</h1>
+                <pre style="height: 530px"><code data-trim data-fragment-index="2" data-line-numbers="3,9|4,10|5,11|6,7,8|12|13,14|15,16,17|18,19">
+                    version: '3.1'
+                    services:
+                        jenkins:
+                            build: jenkins-master
+                            container_name: jenkins
+                            ports:
+                                - '8080:8080'
+                                - '50000:50000'
+                        jenkins-slave:
+                            build: jenkins-slave
+                            container_name: jenkins-slave
+                            restart: always
+                            environment:
+                                - 'JENKINS_URL=http://jenkins:8080'
+                            volumes:
+                                - /var/run/docker.sock:/var/run/docker.sock  # Expose the docker daemon in the container
+                                - /home/jenkins:/home/jenkins # Avoid mysql volume mount issue
+                            depends_on:
+                                - jenkins
                 </code></pre>
             </section>
         </section>

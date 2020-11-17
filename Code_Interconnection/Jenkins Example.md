@@ -1,10 +1,32 @@
+- [Example for Interconnection between Docker and Jenkins](#example-for-interconnection-between-docker-and-jenkins)
+  * [TL;DR](#tl-dr)
+  * [Creating the Jenkins Master](#creating-the-jenkins-master)
+    + [Creating the Folder](#creating-the-folder)
+    + [Changing into the Folder](#changing-into-the-folder)
+    + [Creating the Dockerfile](#creating-the-dockerfile)
+    + [Getting the Ressources](#getting-the-ressources)
+    + [Getting back into the Root Folder](#getting-back-into-the-root-folder)
+  * [Creating the Jenkins Slave](#creating-the-jenkins-slave)
+    + [Creating the Folder](#creating-the-folder-1)
+    + [Changing into the Folder](#changing-into-the-folder-1)
+    + [Creating the Dockerfile](#creating-the-dockerfile-1)
+    + [Getting the Ressources](#getting-the-ressources-1)
+    + [Getting back into the Root Folder](#getting-back-into-the-root-folder-1)
+  * [Creating the Compose file](#creating-the-compose-file)
+  * [Building the Master](#building-the-master)
+    + [Getting back into the Root Folder](#getting-back-into-the-root-folder-2)
+  * [Building the Slave](#building-the-slave)
+    + [Getting back into the Root Folder](#getting-back-into-the-root-folder-3)
+    + [Running the Stack](#running-the-stack)
+
 # Example for Interconnection between Docker and Jenkins
 
 ## TL;DR  
 Copy the full code into a File with the ending .sh  
 For Example you can use the sequence :  
     1. `vim installMe.sh`  
-    2. Insert the Code down Below or use ` wget https://raw.githubusercontent.com/Mueller-Patrick/SE-e-Portfolio/master/Code_Interconnection/installMe.sh`   
+    2. Insert the Code down Below or use 
+    1.5 instead for 1+2 ` wget https://raw.githubusercontent.com/Mueller-Patrick/SE-e-Portfolio/master/Code_Interconnection/installMe.sh`     
     3. `chmod 700 installMe.sh`  
     4. `./installMe`  
     5. `cd jenkins-master`  
@@ -15,12 +37,12 @@ For Example you can use the sequence :
     10. `cd ..`   
     11. `docker-compose up`  
 
-##Creating the Jenkins Master
+## Creating the Jenkins Master
 ### Creating the Folder  
 ```
 mkdir jenkins-master
 ```
-# Changing into the Folder
+### Changing into the Folder
 ```
 cd jenkins-master
 ```
@@ -52,12 +74,12 @@ wget https://raw.githubusercontent.com/Mueller-Patrick/SE-e-Portfolio/master/Cod
 cd ..
 ```
 
-##Creating the Jenkins Slave
+## Creating the Jenkins Slave
 ### Creating the Folder  
 ```
 mkdir jenkins-slave
 ```
-# Changing into the Folder
+### Changing into the Folder
 ```
 cd jenkins-slave
 ```
@@ -108,7 +130,7 @@ wget https://raw.githubusercontent.com/Mueller-Patrick/SE-e-Portfolio/master/Cod
 cd ..
 ```
 
-### Creating the Compose file  
+## Creating the Compose file  
 ```
 cat > ./docker-compose.yml << ENDOFFILE
 version: '3.1'
@@ -132,7 +154,7 @@ services:
             - jenkins
 ENDOFFILE
 ```
-### Building the Master
+## Building the Master
 ``` 
 cd jenkins-master
 docker build -t jenkins-master . 
@@ -141,10 +163,14 @@ docker build -t jenkins-master .
 ```
 cd ..
 ```
-### Building the Slave
+## Building the Slave
 ``` 
 cd jenkins-slave
 docker build -t jenkins-slave .
+```
+### Getting back into the Root Folder
+```
+cd ..
 ```
 ### Running the Stack  
 ``` docker-compose up  ```
