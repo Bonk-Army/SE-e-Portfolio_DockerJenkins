@@ -18,7 +18,7 @@
 Copy the full code into a File with the ending .sh  
 For Example you can use the sequence :  
     1. `vim installMe.sh`  
-    2. Insert the Code down Below  
+    2. Insert the Code down Below or use 
     3. `chmod 700 installMe.sh`  
     4. `./installMe`  
     5. `docker-compose build`  
@@ -132,7 +132,6 @@ For Example you can use the sequence :
       ports:
       - "27017:27017" # specify port forwarding
     ENDOFFILE
-    ```
 </details>
 
 ## Adding Angular Container 
