@@ -25,8 +25,14 @@ cat > ./page-contents/test.html << ENDOFFILE
 ENDOFFILE
 ```
 After to start the container with your linked directory ~  
-```docker run -it --rm -d -p 8080:80 --name web -v ~/page-contents:/usr/share/nginx/html nginx```
-
+```docker run -d -p 8080:80 --name web -v ~/page-contents:/usr/share/nginx/html nginx```
+| Command          	| Parameter                             	| Description                                        	|
+|------------------	|---------------------------------------	|----------------------------------------------------	|
+| -d \|\| --detach 	|                                       	| Run Container in Background and print Container ID 	|
+| -p \|\| --expose 	| 8080:80                               	| Expose a Port or a Range of Ports                  	|
+| --name           	| web                                   	| Assign a name to a container                       	|
+| -v \|\| --volume 	| ~/page-contents:/usr/share/nginx/html 	| Bind mount a volume                                	|
+|                  	| nginx                                 	| Docker Image from Docker Hub                       	|
 
 Second Method
 -------------
@@ -58,3 +64,4 @@ Run this new Image with the Config of : Port 8080 of the Container gets linked t
 ```
 docker run -it --rm -d -p 8080:80 --name web webserver
 ```
+`Important : we just edit the Command from the First Method to use our Local Docker Image`
