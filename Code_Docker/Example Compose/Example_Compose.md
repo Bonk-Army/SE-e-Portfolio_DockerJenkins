@@ -11,8 +11,7 @@ For Example you can use the sequence :
     6. `docker-compose up`  
 <details>
     <summary>Click to toggle contents of `code`</summary>
-    ```
-   
+    
     #!/bin/sh
     mkdir angular-app
     mkdir express-server
