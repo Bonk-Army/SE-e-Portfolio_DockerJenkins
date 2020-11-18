@@ -1,0 +1,106 @@
+{
+	"timeline":
+	{
+		"headline":"The History of Docker",
+		"type":"default",
+		"text":"",
+		"date": [
+			{
+				"startDate":"2010,1,7",
+				"headline":"Docker Inc. was founded",
+				"text":"by Solomon Hykes and Sebastien Pahl during the Y Combinator Summer 2010 startup incubator group",
+				"asset":
+				{
+					"media":"https://www.docker.com/sites/default/files/social/docker_facebook_share.png",
+					"credit":"Docker Inc.",
+					"caption":"https://www.docker.com/company",
+					"thumbnail": "https://www.docker.com/sites/default/files/social/docker_facebook_share.png"
+				}
+			},
+			{
+				"startDate":"2011,1,1",
+				"headline":"First Revision of Docker launched",
+				"text":"",
+				"asset":
+				{
+					"media":"https://www.docker.com/sites/default/files/social/docker_facebook_share.png",
+					"credit":"Docker Inc.",
+					"caption":"https://www.docker.com/company",
+					"thumbnail": "https://www.docker.com/sites/default/files/social/docker_facebook_share.png"
+				}
+			},
+			{
+				"startDate":"2013,1,19",
+				"headline":"Initial Git Commit",
+				"text":"The initial Git Commit gets pushed to the corresponding Git Repositor",
+				"asset":
+				{
+					"media":"https://static.thenounproject.com/png/2537955-200.png",
+					"credit":"Commit Icons",
+					"caption":"",
+					"thumbnail": "https://static.thenounproject.com/png/2537955-200.png"
+				}
+			},
+			{
+				"startDate":"2011,3,21",
+				"headline":"Docker debut",
+				"text":"Docker got Published in March 2013 by the company dotCloud at PyCon",
+				"asset":
+				{
+					"media":"https://us.pycon.org/2013/site_media/static/img/logo.png",
+					"credit":"PyCon US",
+					"caption":"yCon US 2013 | Santa Clara, CA | March 13th – March 21st",
+					"thumbnail": "https://us.pycon.org/2013/site_media/static/img/logo.png"
+				}
+			},
+			{
+				"startDate":"2017,6,1",
+				"headline":"Kubernetes Project",
+				"text":"In July 2014, Microsoft, Red Hat, IBM, Docker, Mesosphere, Core OS and Saltstack joined the Kubernetes project initiated by Google. The aim of the cooperation was to be able to provide Docker containers to all private, public and hybrid cloud environments with Kubernetes.",
+				"asset":
+				{
+					"media":"https://kubernetes.io/images/kubernetes-horizontal-color.png",
+					"credit":"Google",
+					"caption":"Kubernetes Logo",
+					"thumbnail": "https://blog.bosch-si.com/wp-content/uploads/kubernetes-logo.png"
+				}
+			},
+			{
+				"startDate":"2017,1,1",
+				"headline":"Docker created the Moby project",
+				"text":"The Moby project is a project for open research and development of docker",
+				"asset":
+				{
+					"media":"https://i0.wp.com/www.docker.com/blog/wp-content/uploads/c4c453e5-929d-4eef-a298-454c9484758d-1.jpg?fit=488%2C176&ssl=1",
+					"credit":"Moby Project",
+					"caption":"Logo of the Moby Project",
+					"thumbnail": "https://avatars3.githubusercontent.com/u/27259197?s=200&v=4"
+				}
+			},
+			{
+				"startDate":"2019,1,1",
+				"headline":"Redhat Enterprise Linux 8 removed Docker",
+				"text":"Redhat Enterprise Linux 8, which was released in 2019, no longer includes Docker because Redhat and other distributors such as B. Suse decided to replace Docker with podman because of problems with Docker Inc.",
+				"asset":
+				{
+					"media":"https://upload.wikimedia.org/wikipedia/de/d/d8/Red_Hat_logo.svg",
+					"credit":"RedHat",
+					"caption":"Logo of RedHat",
+					"thumbnail": "https://upload.wikimedia.org/wikipedia/de/d/d8/Red_Hat_logo.svg"
+				}
+			},
+			{
+				"startDate":"2019,6,1",
+				"headline":"Sold to Mirantis",
+				"text":"Docker Enterprise was sold to Mirantis in 2019 for around $ 35 million. The company subsequently announced that it would end support for Docker Swarm after two years",
+				"asset":
+				{
+					"media":"https://upload.wikimedia.org/wikipedia/en/thumb/a/a4/Mirantis_logo.svg/1200px-Mirantis_logo.svg.png",
+					"credit":"Mirantis",
+					"caption":"Logo of Mirantis",
+					"thumbnail": "https://upload.wikimedia.org/wikipedia/en/thumb/a/a4/Mirantis_logo.svg/1200px-Mirantis_logo.svg.png"
+				}
+			}
+		]
+	}
+}
