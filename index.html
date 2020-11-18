@@ -670,16 +670,16 @@
         <!-- Content Overview -->
         <section>
             <ul>
-                <!-- TODO Anpassen!!! -->
                 <li>What is Jenkins?</li>
                 <li>A brief history of Jenkins</li>
-                <li>What do I need a build server for?</li>
-                <li>What do I need CI/CD for?</li>
-                <!-- Hint: One build server that builds instead of every developer machine -> "It works on my machine" prevented -->
-                <li>How to install Jenkins</li>
-                <li>How to integrate Jenkins with GitHub</li>
+                <li>What do I need a build server and CI/CD for?</li>
                 <li>What is Jenkins capable of doing?</li>
                 <li>Why do I need a build server when there is GitHub actions?</li>
+                <li>How to install Jenkins</li>
+                <li>How to create a project in Jenkins</li>
+                <li>How to integrate Jenkins with GitHub</li>
+                <li>How to use Jenkins in your own project</li>
+                <li>Live Demo of Jenkins at Betterzon</li>
             </ul>
         </section>
         <!-- What is Jenkins -->
@@ -712,32 +712,59 @@
                 Source: https://en.wikipedia.org/wiki/Jenkins_(software)
             -->
         </section>
-        <!-- Build Server -->
+        <!-- Build Server, CI/CD -->
         <section>
-            <h2>What do I need a build server for?</h2>
+            <h2>What do I need a build server and CI/CD for?</h2>
             <img src="https://confluence.atlassian.com/bamboo/files/289277285/289342279/2/1426549208892/CI+overview.png">
             <aside class="notes">
                 <ul>
                     <li>Build Servers are used for CI/CD pipelines</li>
                     <li>Only one source of truth (the repository)<br>-> Therefore eliminates "it works on my machine"</li>
                     <li>Parallel tasks</li>
+                    <li>
+                        Run tests:
+                        <ul>
+                            <li>Regression tests</li>
+                            <li>Performance tests</li>
+                            <li>API testing</li>
+                            <li>Static code analysis</li>
+                            <li>Security testing</li>
+                        </ul>
+                        API tests can e.g. run after the deployment was successful
+                    </li>
+                    <li>
+                        Deployment
+                        <ul>
+                            <li>Deploy to multiple environments, e.g. Staging, Testing, Production</li>
+                            <li>Manage environment variables for each environment</li>
+                            <li>Pushing components to the appropriate services</li>
+                            <li>Restarting those services so the changes get applied</li>
+                        </ul>
+                    </li>
                 </ul>
             </aside>
             <!--
                 Source: https://deviq.com/build-server/
+                        https://www.infoworld.com/article/3271126/what-is-cicd-continuous-integration-and-continuous-delivery-explained.html
             -->
         </section>
-        <!-- CI/CD -->
+        <!-- Capabilities -->
         <section>
-            <h2>What do I need CI/CD for?</h2>
+            <h2>What is Jenkins capable of doing?</h2>
+            <img src="https://www.edureka.co/blog/wp-content/uploads/2016/10/Jenkins-integration-jenkins-tutorial-Edureka.jpg">
+        </section>
+        <!-- Why own build server -->
+        <section>
+            <h2>Why do I need a build server when there is GitHub actions?</h2>
             <ul>
-                <li>"It works on my machine"</li>
-                <li>Central build server</li>
-                <li>Same environment for every build</li>
+                <li>Self-hosted</li>
+                <li>More customizable</li>
             </ul>
-            <!--
-                Source: https://www.infoworld.com/article/3271126/what-is-cicd-continuous-integration-and-continuous-delivery-explained.html
-            -->
+            <aside class="notes">
+                <ul>
+                    <li>More cost-efficient</li>
+                </ul>
+            </aside>
         </section>
         <!-- How to install -->
         <section>
@@ -810,29 +837,6 @@
                 -->
             </section>
         </section>
-        <!-- Integrate with GitHub -->
-        <section>
-            <h2>How to integrate Jenkins with GitHub</h2>
-            <img src="https://applitools.com/wp-content/uploads/2018/11/APT_Jenkins_Gitgub_Diagram_2018-10-03-1.jpg" alt="GitHub and Jenkins Integration">
-        </section>
-        <!-- Capabilities -->
-        <section>
-            <h2>What is Jenkins capable of doing?</h2>
-            <img src="https://www.edureka.co/blog/wp-content/uploads/2016/10/Jenkins-integration-jenkins-tutorial-Edureka.jpg">
-        </section>
-        <!-- Why own build server -->
-        <section>
-            <h2>Why do I need a build server when there is GitHub actions?</h2>
-            <ul>
-                <li>Self-hosted</li>
-                <li>More customizable</li>
-            </ul>
-            <aside class="notes">
-                <ul>
-                    <li>More cost-efficient</li>
-                </ul>
-            </aside>
-        </section>
         <!-- How to create a project in Jenkins -->
         <section>
             <section>
@@ -863,6 +867,16 @@
                 <img src="res/jenkins_new_project_8.png">
             </section>
         </section>
+        <!-- Integrate with GitHub -->
+        <section>
+            <h2>How to integrate Jenkins with GitHub</h2>
+            <img src="https://applitools.com/wp-content/uploads/2018/11/APT_Jenkins_Gitgub_Diagram_2018-10-03-1.jpg" alt="GitHub and Jenkins Integration">
+            <aside class="notes">
+                <ul>
+                    <li>To get more practical, now we integrate Jenkins with GitHub</li>
+                </ul>
+            </aside>
+        </section>
         <!-- How to use Jenkins in own project -->
         <section>
             <h2>How to use Jenkins in your own project</h2>
@@ -876,7 +890,63 @@
         </section>
         <!-- Jenkins at Betterzon -->
         <section>
-            <h2>Demo of Jenkins use in our project</h2>
+            <section>
+                <h2>Demo of Jenkins use in our project</h2>
+            </section>
+            <section>
+                <pre><code data-trim data-noescape data-line-numbers="1-2|4-5|6|7-13">
+                    export REPO_NAME='Mueller-Patrick/Betterzon'
+                    export JOB_NAME='Verify_Build_on_PR'
+
+                    curl "https://api.GitHub.com/repos/$REPO_NAME/statuses/$GIT_COMMIT" \
+                    -H "Content-Type: application/json" \
+                    -H "Authorization: token $GH_TOKEN" \
+                    -X POST \
+                    -d "{
+                        \"state\": \"pending\",
+                        \"context\": \"jenkins/$REPO_NAME\",
+                        \"description\": \"Jenkins\",
+                        \"target_url\": \"https://ci.betterzon.xyz/job/$JOB_NAME/$BUILD_NUMBER/console\"
+                    }"
+                </code></pre>
+            </section>
+            <section>
+                <pre><code data-trim data-noescape data-line-numbers="1-2|5|8-18|19-29|31-32">
+                    export REPO_NAME='Mueller-Patrick/Betterzon'
+                    export JOB_NAME='Verify_Build_on_PR'
+                    TEST_ERROR=0
+
+                    cd Frontend
+                    ng build || TEST_ERROR=$?
+                    cd ..
+
+                    if [ $TEST_ERROR -eq 0 ] ; then
+                        curl "https://api.GitHub.com/repos/$REPO_NAME/statuses/$GIT_COMMIT" \
+                        -H "Content-Type: application/json" \
+                        -H "Authorization: token $GH_TOKEN" \
+                        -X POST \
+                        -d "{
+                            \"state\": \"success\",
+                            \"context\": \"jenkins/$REPO_NAME\",
+                            \"description\": \"Jenkins\",
+                            \"target_url\": \"https://ci.betterzon.xyz/job/$JOB_NAME/$BUILD_NUMBER/console\"
+                        }"
+                    else
+                        curl "https://api.GitHub.com/repos/$REPO_NAME/statuses/$GIT_COMMIT" \
+                        -H "Content-Type: application/json" \
+                        -H "Authorization: token $GH_TOKEN" \
+                        -X POST \
+                        -d "{
+                            \"state\": \"failure\",
+                            \"context\": \"jenkins/$REPO_NAME\",
+                            \"description\": \"Jenkins\",
+                            \"target_url\": \"https://ci.betterzon.xyz/job/$JOB_NAME/$BUILD_NUMBER/console\"
+                        }"
+
+                        exit $TEST_ERROR
+                    fi
+                </code></pre>
+            </section>
         </section>
     </div>
     <div class="slides" id="interconnect">
