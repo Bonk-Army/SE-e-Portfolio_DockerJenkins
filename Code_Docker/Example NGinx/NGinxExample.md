@@ -3,7 +3,7 @@ First Method
 
 Add nano to the VM
 ```
-apk install nano
+apk add nano
 ```
 
 Copy the whole Code into the Console to
