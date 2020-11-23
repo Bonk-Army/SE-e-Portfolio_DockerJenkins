@@ -2,6 +2,7 @@
 /target/
 *.iml
 .idea/
+/node_modules
 
 # Other crap
 .DS_STORE
